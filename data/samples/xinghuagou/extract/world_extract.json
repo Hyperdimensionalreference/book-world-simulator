@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "source_id": "xinghuagou_autumn",
+    "source_title": "杏花沟秋事",
+    "source_type": "original_sample",
+    "extraction_note": "制作阶段从短篇样本提取的结构。原文仅用于受控提取，不进入可玩数据包。本文件是「结构」而非「内容复述」。",
+    "extracted_at": "sample-run",
+    "schema_version": "1.0"
+  },
+  "world_frame": {
+    "scale": "small_village",
+    "setting": "北方山村杏花沟，秋收到年关，约当立秋至大寒",
+    "time_unit": "节气 / 日常节点",
+    "power_map": "宗族与人情网络；会计与镇工作组掌握量地话语权；城里儿子是外部变量",
+    "threat_style": "日常压力：土地、彩礼、人情债、面子、病丧、撤并、离开"
+  },
+  "conflict_sources": [
+    {
+      "id": "land_boundary",
+      "name": "河滩地界石不清",
+      "type": "material",
+      "description": "马家与赵家河滩地相邻，界石模糊，确权重划时是零和争夺",
+      "stakes": "一分地 = 脸面 + 口粮 + 说话音量"
+    },
+    {
+      "id": "sister_bride_price",
+      "name": "妹妹彩礼与面子",
+      "type": "family_face",
+      "description": "陈家要彩礼一万八，母亲好强，父亲早逝后家底薄，妹妹想读书却懂事退让",
+      "stakes": "钱、妹妹的前程、母亲的尊严、邻里怎么看马家"
+    },
+    {
+      "id": "debt_favor",
+      "name": "三叔的人情债",
+      "type": "social_debt",
+      "description": "父病借债三千，账情交织；三叔精明但记恩也记账",
+      "stakes": "还钱会掏空，不还抬不起头；还情的方式有多种"
+    },
+    {
+      "id": "lonely_elder",
+      "name": "孤老李老栓与城里儿子",
+      "type": "care_debt",
+      "description": "玩家幼年受其照应，如今其病重子远；帮忙费时间，不帮留遗憾与口实",
+      "stakes": "时间、良心、日后李建国的态度、村里评价"
+    },
+    {
+      "id": "school_closing",
+      "name": "村小撤并与出路",
+      "type": "exit_or_stay",
+      "description": "帮工岗位将消失；招工机会与照顾母亲的责任拉扯",
+      "stakes": "离开=挣活钱丢下家；留下=尽孝却可能窝死"
+    },
+    {
+      "id": "rumor_network",
+      "name": "风声与体面",
+      "type": "reputation",
+      "description": "王婶等人口耳相传；一件事怎么做会变成「马家小子是个什么人」",
+      "stakes": "名声影响说亲、借还、席面座次、量地时谁帮你说话"
+    },
+    {
+      "id": "poor_neighbor",
+      "name": "孙家断顿与孩子失学",
+      "type": "neighbor_mercy",
+      "description": "穷邻居借粮、丫头念书；帮是掏自己，不帮是关上门",
+      "stakes": "粮、钱、名声、良心"
+    },
+    {
+      "id": "clan_share",
+      "name": "宗祠摊派与话语权",
+      "type": "clan",
+      "description": "修渠办席照应银；出多出少都是脸面政治",
+      "stakes": "钱、在宗族里说话的分量"
+    },
+    {
+      "id": "craft_path",
+      "name": "手艺与立身",
+      "type": "capability",
+      "description": "算账/认药/写字，决定能否在镇上和村里换活路",
+      "stakes": "craft 数值与日后工价"
+    },
+    {
+      "id": "sister_marriage_aguo",
+      "name": "包办里的真心",
+      "type": "marriage",
+      "description": "陈阿国不是恶人，被规矩捆着；玩家看见包办中的裂缝",
+      "stakes": "小雨的命运与哥哥的介入方式"
+    },
+    {
+      "id": "city_truth",
+      "name": "城里的真话与虚火",
+      "type": "exit_myth",
+      "description": "桂花讲苦，赵小军讲风光；走的决定质量取决于听谁",
+      "stakes": "去留判断与家人承受"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ma_xiaoman",
+      "name": "马小满",
+      "role": "player",
+      "wants": "还清人情、护住妹妹的前程、在变局里站稳，弄清自己是谁",
+      "blocks": "没钱、母病、家无成年男丁、信息总是慢半拍",
+      "costs": "��选择一方就要冷落另一方；时间不可再生",
+      "speech_style": "话少，实在，偶尔犟"
+    },
+    {
+      "id": "he_xiuying",
+      "name": "何秀英",
+      "role": "mother",
+      "wants": "儿女体面、不被人看扁、还清人情",
+      "blocks": "丧夫、体弱、穷但死要强",
+      "costs": "要面子就要出血；护孩子会跟孩子吵",
+      "speech_style": "刀子嘴，短句，带刺，护犊"
+    },
+    {
+      "id": "ma_changgui",
+      "name": "马长贵",
+      "role": "uncle_creditor",
+      "wants": "账清、被人当正经长辈敬着",
+      "blocks": "名声上怕被说「逼侄子」",
+      "costs": "太算计会伤亲情；太松自己吃亏",
+      "speech_style": "慢条斯理，账本不离手，「亲兄弟明算账」"
+    },
+    {
+      "id": "zhao_jinsuo",
+      "name": "赵金锁",
+      "role": "neighbor_rival",
+      "wants": "地界占先、在村里有脸、儿子出息被看见",
+      "blocks": "儿子未必靠得住；自己好吹牛",
+      "costs": "争地争狠了结死仇；不管又咽不下",
+      "speech_style": "大嗓门，好强，「不是我吹」"
+    },
+    {
+      "id": "wang_shen",
+      "name": "王婶",
+      "role": "rumor_node",
+      "wants": "消息灵通、被人围着听、顺手帮人换人情",
+      "blocks": "嘴快容易坏事",
+      "costs": "传话会得罪人；不传就没人找她",
+      "speech_style": "气音，凑近，「我跟你说你可别跟别人说」"
+    },
+    {
+      "id": "li_laoshuan",
+      "name": "李老栓",
+      "role": "lonely_elder",
+      "wants": "病中有人照应、别给儿子添麻烦、走得不孤单",
+      "blocks": "子远、体弱、自尊心强不愿开口求人",
+      "costs": "开口求人丢脸；不开口受罪",
+      "speech_style": "少言，叹气，咳嗽，「人老了不中用了」"
+    },
+    {
+      "id": "li_jianguo",
+      "name": "李建国",
+      "role": "returnee_son",
+      "wants": "尽孝、招工给村里年轻人出路、报答善待父亲的人",
+      "blocks": "工厂走不开、父亲固执、尽孝与挣钱两难",
+      "costs": "报恩花钱花人情；不管会背骂名",
+      "speech_style": "干脆，城里习气，话不多但直"
+    },
+    {
+      "id": "wang_xiaozhang",
+      "name": "王校长",
+      "role": "school_master",
+      "wants": "保住孩子的学、给小满指条路",
+      "blocks": "撤并是上头定的、自己权力有限",
+      "costs": "说真话得罪人；不说又于心不安",
+      "speech_style": "认真，稍书面，「孩子不能没学上」"
+    },
+    {
+      "id": "chen_meipo",
+      "name": "陈媒婆",
+      "role": "broker",
+      "wants": "把亲事说成、两边都念她的好",
+      "blocks": "两边要求都有硬的地方",
+      "costs": "促成要压价或压面子；不成两头落埋怨",
+      "speech_style": "圆滑，「两边都是好人家，就看诚意」"
+    },
+    {
+      "id": "liu_kuaiji",
+      "name": "刘会计",
+      "role": "village_accountant",
+      "wants": "差事办稳、不出乱子、自己别沾火星",
+      "blocks": "上面催进度，下面都要脸",
+      "costs": "公道会得罪人；偏私会留把柄",
+      "speech_style": "公文腔混着圆场话，「按政策来，也看实际情况」"
+    },
+    {
+      "id": "ma_xiaoyu",
+      "name": "马小雨",
+      "role": "sister",
+      "wants": "继续念书、不拖累家里",
+      "blocks": "家里要她说亲换彩礼、懂事到委屈自己",
+      "costs": "争取念书伤娘的心；退让毁自己前程",
+      "speech_style": "小声，懂事，话里藏着委屈"
+    },
+    {
+      "id": "zhao_xiaojun",
+      "name": "赵小军",
+      "role": "city_youth",
+      "wants": "把村里年轻人带出去、自己在城里站住",
+      "blocks": "村里人观望、父亲好面子要他撑场",
+      "costs": "带走人可能带走劳动力也带走牵挂",
+      "speech_style": "自信，略浮，新词多"
+    },
+    {
+      "id": "zhou_dehou",
+      "name": "周德厚",
+      "role": "village_doctor",
+      "wants": "治好病",
+      "blocks": "药贵人穷",
+      "costs": "赊账",
+      "speech_style": "慢，土话夹医嘱"
+    },
+    {
+      "id": "sun_youfu",
+      "name": "孙有福",
+      "role": "poor_neighbor",
+      "wants": "不饿、女念书",
+      "blocks": "地少嘴笨",
+      "costs": "开口就丢脸",
+      "speech_style": "低短搓手"
+    },
+    {
+      "id": "chen_aguo",
+      "name": "陈阿国",
+      "role": "suitor",
+      "wants": "成亲且不欺负小雨",
+      "blocks": "父命彩礼",
+      "costs": "顺父伤她",
+      "speech_style": "木，俺爹说"
+    },
+    {
+      "id": "ma_linzi",
+      "name": "马林子",
+      "role": "cousin",
+      "wants": "借钱说亲",
+      "blocks": "手散",
+      "costs": "借多伤亲",
+      "speech_style": "滑甜"
+    },
+    {
+      "id": "guihua",
+      "name": "桂花",
+      "role": "migrant_worker",
+      "wants": "挣嫁妆别回村",
+      "blocks": "寄钱义务",
+      "costs": "掏空自己",
+      "speech_style": "快脆城里词"
+    }
+  ],
+  "canon_events": [
+    {
+      "id": "canon_land_survey",
+      "turn": 4,
+      "title": "镇工作组进村量地",
+      "description": "确权量地按期进行，界线以登记与丈量为准，个人哭闹不改变「按政策来」的结果方向。",
+      "foreshadow": [
+        "王婶墙根嚼舌",
+        "粮价下跌农药上涨",
+        "刘会计家灯火通明",
+        "有人说告状信到了镇上"
+      ]
+    },
+    {
+      "id": "canon_zhao_engagement",
+      "turn": 6,
+      "title": "赵家办订婚席",
+      "description": "赵家为赵小军订婚，席面在打谷场，村里人情在此亮相。",
+      "foreshadow": [
+        "赵金锁提前放话要办大事",
+        "供销社有人赊账买糖"
+      ]
+    },
+    {
+      "id": "canon_li_illness",
+      "turn": 8,
+      "title": "李老栓病重",
+      "description": "孤老李老栓卧床，儿子在南方，病情按人走的规律加重，不以玩家是否照应为转移。",
+      "foreshadow": [
+        "王婶提起李老栓咳嗽",
+        "沟口烟囱有时不冒烟"
+      ]
+    },
+    {
+      "id": "canon_li_return",
+      "turn": 10,
+      "title": "李建国回村并传出招工消息",
+      "description": "工厂招工与「带人出去」的消息扩散，年轻人的岔路口摆在面前。",
+      "foreshadow": [
+        "镇上传来招工风",
+        "摩托声响进村"
+      ]
+    },
+    {
+      "id": "canon_bride_pressure",
+      "turn": 12,
+      "title": "陈家催定彩礼",
+      "description": "说亲进入硬谈判，彩礼数额成为面子与家底的正面冲突。",
+      "foreshadow": [
+        "陈媒婆两头走",
+        "娘叠被单时停手"
+      ]
+    },
+    {
+      "id": "canon_li_death",
+      "turn": 14,
+      "title": "李老栓去世",
+      "description": "病故，丧事在沟口办理，人情网在白事上重新排序。",
+      "foreshadow": [
+        "夜里狗叫得紧",
+        "有人往沟口送鸡蛋"
+      ]
+    },
+    {
+      "id": "canon_school_close",
+      "turn": 16,
+      "title": "村小撤并红头文件",
+      "description": "小学开春并入镇中心校，帮工岗位消失成为定局。",
+      "foreshadow": [
+        "王校长整理作业本",
+        "上头来人看校舍"
+      ]
+    },
+    {
+      "id": "canon_year_end",
+      "turn": 18,
+      "title": "年关人情清算",
+      "description": "账本、份子、往来在年关结算；你成为谁，在这些账里被说清楚。",
+      "foreshadow": [
+        "三叔把软皮本擦了又擦",
+        "供销社扯红纸的人多了"
+      ]
+    }
+  ],
+  "play_space_note": "玩家是马小满，不是原著命运的改写者。可玩空间：土地站位、人情债、手艺立身、照应孤老与穷邻、包办婚事里的护妹、去留抉择。定数不改，处境与身份可改。小世界冲突靠面子、人情、土地、婚丧、离开归来驱动。",
+  "avoid": [
+    "不要复述原文段落",
+    "不要让玩家改写量地结果、李老栓生死、撤并决定、婚事是否办",
+    "不要提供「拯救村子」选项",
+    "不要好坏分明的道德选择题",
+    "不要设定集腔调的旁白"
+  ]
+}
