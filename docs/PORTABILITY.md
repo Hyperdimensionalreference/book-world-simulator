@@ -78,7 +78,7 @@ python production/pipeline.py all \
 4. 立刻可玩。若要加厚：`PROMPTS.md` 阶段 B/C/D 补场景与延迟后果，再 `pipeline.py check`。
 5. `python tests/test_portability.py` 可把新书加进 `BOOKS` 表一起回归。
 
-**引擎、前端、快捷方式都���用改。**
+**引擎、前端、快捷方式都不用改。**
 
 ---
 
