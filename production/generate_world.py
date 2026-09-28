@@ -180,7 +180,7 @@ def _scene_patch(scene: dict, extract: dict, cache: Checkpoints) -> dict:
     cast = [char for char in extract["characters"] if char["id"] in (scene.get("npcs") or [])]
     prompt = (
         "把这个可玩场景改写成具体、克制的文字戏。保留 scene id 和每个 choice id，"
-        "保持选项顺序和数量。不得改写定数、效果���条件、回合、后果时距。"
+        "保持选项顺序和数量。不得改写定数、效果、条件、回合、后果时距。"
         "让在场人物按各自口吻说话；每个选项有能看见的得失；延迟后果由具体人物说出或做出。"
         "返回 JSON：id,title,narration,choices；choices 每项含 id,text,immediate,hook_texts 数组，"
         "hook_texts 与原 hooks 一一对应。不要原文复述。\n"
