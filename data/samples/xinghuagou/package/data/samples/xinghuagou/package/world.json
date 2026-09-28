@@ -1,0 +1,2305 @@
+[
+  {
+    "id": "s_open_home",
+    "title": "晾衣绳下的开场白",
+    "turn": 0,
+    "place": "home",
+    "npcs": [
+      "he_xiuying",
+      "ma_xiaoyu"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "narration": "娘把被单从晾衣绳上收下来，叠到一半停住手。\n\n「陈家那边托人捎话了。」她说，声音平平的，像在说天气，「秋后想把事定了。」\n\n小雨在灶门口坐着，书包放在脚边，没敢抬头。\n\n「你三叔昨天又提钱。」娘又说。软皮本上的三千，像压在被单底下的一块砖。",
+    "choices": [
+      {
+        "id": "c_comfort_mother",
+        "text": "先应下娘：「这事我来想办法。」",
+        "immediate": "娘看了你一眼，又低下头叠被单。「你想办法？你想啥办法。」\n可她叠被单的手，没再停。",
+        "effects": {
+          "stats": {
+            "face": 3,
+            "guts": 2,
+            "favor_in": 1
+          },
+          "relationships": {
+            "he_xiuying": 8,
+            "ma_xiaoyu": 5
+          },
+          "add_memory": [
+            "立秋头一天，你应下娘要想法子",
+            "he_xiuying|他肯应承，算有点担当"
+          ],
+          "add_note": "你把事揽上身了"
+        },
+        "hooks": [
+          {
+            "delay": 12,
+            "type": "message",
+            "text": "娘又提起那句「你想办法」，眼睛里有期待，也有怕你撑不住的慌。彩礼的数还悬着。",
+            "actor": "he_xiuying",
+            "stats": {
+              "favor_in": 1
+            }
+          }
+        ],
+        "tags": [
+          "担当",
+          "压在自己身上"
+        ]
+      },
+      {
+        "id": "c_ask_sister",
+        "text": "先问小雨：「你自己是怎么想的？」",
+        "immediate": "小雨把书包带子绞紧了。「哥，我……」\n娘在旁边哼了一声：「她想啥？她想的能算数？」\n可你看见小雨眼睛亮了一下，又很快暗下去。",
+        "effects": {
+          "stats": {
+            "warmth": 5,
+            "face": -2
+          },
+          "relationships": {
+            "ma_xiaoyu": 12,
+            "he_xiuying": -3
+          },
+          "flags": {
+            "asked_sister_mind": true
+          },
+          "add_memory": [
+            "你先问了妹妹想怎样",
+            "ma_xiaoyu|哥还愿意听我说话"
+          ],
+          "add_note": "你把妹妹当个人问，不当货谈"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "小雨偷偷塞给你半块糖，说是省下来的。她还惦记着念书的事，没敢跟娘提。",
+            "actor": "ma_xiaoyu",
+            "stats": {
+              "warmth": 3
+            },
+            "relationships": {
+              "ma_xiaoyu": 6
+            }
+          },
+          {
+            "delay": 13,
+            "type": "stats",
+            "text": "彩礼谈判时，小雨因为你当初问过她，多了一分不肯任人摆布的劲。",
+            "stats": {
+              "guts": 4
+            },
+            "relationships": {
+              "ma_xiaoyu": 4
+            },
+            "actor": "ma_xiaoyu"
+          }
+        ],
+        "tags": [
+          "妹妹",
+          "心事"
+        ]
+      },
+      {
+        "id": "c_deflect",
+        "text": "岔开话：「地里的活还没干完。」",
+        "immediate": "娘把被单往你怀里一摔：「干不完的地！你爹一辈子就是地里地里，最后连看病的钱都要看人脸色！」\n你抱着被单站在院子里。风很硬。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "face": -2
+          },
+          "relationships": {
+            "he_xiuying": -10,
+            "ma_xiaoyu": -2
+          },
+          "add_memory": [
+            "立秋头一天你岔开了话",
+            "he_xiuying|连个准话都没有，跟当年一个样"
+          ],
+          "add_note": "你躲开了，���还在屋里"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "娘跟王婶说话时提了一句：「我家小满，还是个孩子，顶不起事。」话传回你耳朵里，发烫。",
+            "actor": "he_xiuying",
+            "stats": {
+              "face": -4
+            },
+            "relationships": {
+              "he_xiuying": -4
+            }
+          }
+        ],
+        "tags": [
+          "回避"
+        ]
+      }
+    ],
+    "tags": [
+      "妹妹",
+      "家庭"
+    ]
+  },
+  {
+    "id": "s_uncle_debt",
+    "title": "软皮本",
+    "turn": 1,
+    "place": "home",
+    "npcs": [
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "narration": "三叔来了。手里捏着那本软皮本，蓝皮，角都磨白了。\n\n他坐下，不急着开口，先把你家的茶喝了一口。「账是账，情是情。」他说，「你爹看病那三千，我不是来逼你的。可我也得有个交代。」\n\n娘在里屋没出来。你听见她切菜的声音，剁得很重。",
+    "choices": [
+      {
+        "id": "c_pay_part",
+        "text": "先还五百，剩下的一笔笔记着。",
+        "requirements": {
+          "stats": {
+            "money": {
+              "min": 80
+            }
+          }
+        },
+        "immediate": "三叔从本子上撕下半页，垫在膝盖上写字。「好。有这个态度，叔心里就稳了。」\n他把本子合上时，你看见上面还有别人的名。",
+        "effects": {
+          "stats": {
+            "money": -80,
+            "favor_in": -1,
+            "face": 5
+          },
+          "relationships": {
+            "ma_changgui": 12
+          },
+          "flags": {
+            "paid_uncle_once": true
+          },
+          "add_memory": [
+            "你还了三叔五百，当面记账",
+            "ma_changgui|这孩子讲规矩"
+          ],
+          "add_note": "账动了，情也动了"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "量地那几天，三叔在刘会计跟前替你家说了一句公道话。数目不大，分量不小。",
+            "actor": "ma_changgui",
+            "relationships": {
+              "ma_changgui": 6,
+              "liu_kuaiji": 4
+            },
+            "stats": {
+              "face": 3
+            }
+          }
+        ],
+        "tags": [
+          "还账",
+          "规矩"
+        ]
+      },
+      {
+        "id": "c_promise_later",
+        "text": "实话实说：现钱紧，秋后想想法子。",
+        "immediate": "三叔点点头，没笑也没恼。「行。你记着就行。」\n他起身时把茶喝干净了。「小满，不是叔不讲情面。是这世道，情面也得拿东西垫着。」",
+        "effects": {
+          "stats": {
+            "favor_in": 1,
+            "guts": 2
+          },
+          "relationships": {
+            "ma_changgui": -2
+          },
+          "add_memory": [
+            "你跟三叔说了实话，说秋后再想法子",
+            "ma_changgui|实话是实话，就是还不上"
+          ],
+          "add_note": "你没躲，但债还压着"
+        },
+        "hooks": [
+          {
+            "delay": 8,
+            "type": "message",
+            "text": "三叔在李老栓病重时提过一句：「小满连账都还不利索，倒有闲心往沟口跑。」话不重，记的人多。",
+            "actor": "ma_changgui",
+            "stats": {
+              "face": -3
+            },
+            "relationships": {
+              "ma_changgui": -5
+            }
+          }
+        ],
+        "tags": [
+          "拖着"
+        ]
+      },
+      {
+        "id": "c_ask_uncle_for_work",
+        "text": "反问三叔：有没有活计能挣现钱？",
+        "immediate": "三叔把软皮本翻开，又合上。「有倒是有。就是累，还伤面子。」\n「镇上冷库招人搬货，一天四十。你要是肯去，叔跟人说一声。」",
+        "effects": {
+          "stats": {
+            "guts": 4,
+            "money": 50,
+            "health": -5
+          },
+          "relationships": {
+            "ma_changgui": 8
+          },
+          "flags": {
+            "knows_cold_storage_job": true
+          },
+          "add_memory": [
+            "你问三叔要活路，他给了冷库搬货的路子",
+            "ma_changgui|肯低头找活，不是死要面子"
+          ],
+          "add_note": "你愿意为还账弯腰"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "stats",
+            "text": "冷库的活你去干了两天。钱到手了，肩膀也青了。村里有人说：马家小子去当小工了。有人点头，有人撇嘴。",
+            "stats": {
+              "money": 80,
+              "health": -8,
+              "face": -2
+            },
+            "actor": "village"
+          }
+        ],
+        "tags": [
+          "挣钱",
+          "低头"
+        ]
+      }
+    ],
+    "tags": [
+      "人情",
+      "账"
+    ]
+  },
+  {
+    "id": "s_wangshen_rumor",
+    "title": "墙根的风声",
+    "turn": 2,
+    "place": "village",
+    "npcs": [
+      "wang_shen"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "narration": "王婶挎着篮子，一把将你拽到墙根。韭菜味混着她身上的皂角气。\n\n「哎，我跟你说个事，你可别跟别人说。」她声音压得极低，「听说镇上要重新量地。河滩那块——你家和赵金锁家，界石早就不清了。」\n\n她眼睛亮亮的，等你看她的脸。",
+    "choices": [
+      {
+        "id": "c_listen_close",
+        "text": "凑近些听，还顺着问两句。",
+        "immediate": "王婶受用极了。「就说你是个明白人！」\n「听说告状信都到镇上了。谁写的我不晓得……反正这回是动真格的。」\n她临走又回头：「你可别说出去啊。」",
+        "effects": {
+          "stats": {
+            "warmth": 2
+          },
+          "relationships": {
+            "wang_shen": 10
+          },
+          "flags": {
+            "heard_land_rumor": true,
+            "knows_complaint_letter": true
+          },
+          "add_memory": [
+            "你在墙根听了量地的风声",
+            "wang_shen|他肯听我说话"
+          ],
+          "add_note": "你拿到了风声，也进了王婶的耳朵"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "王婶又跟你说了一嘴：「赵金锁前儿在供销社跟人讲，河滩那地本来就是他家的。你家可得留神。」",
+            "actor": "wang_shen",
+            "flags": {
+              "knows_zhao_claim": true
+            }
+          },
+          {
+            "delay": 5,
+            "type": "message",
+            "text": "因为你肯听她说话，王婶在席面上帮你圆了一句场面话。人情这东西，有时候就是听出来的。",
+            "actor": "wang_shen",
+            "relationships": {
+              "wang_shen": 6
+            },
+            "stats": {
+              "favor_out": 1,
+              "face": 2
+            }
+          }
+        ],
+        "tags": [
+          "风声",
+          "人情"
+        ]
+      },
+      {
+        "id": "c_warn_family",
+        "text": "听完就走，回家跟娘和小雨通气。",
+        "immediate": "你到家把话一说。娘把筷子一放：「赵金锁！他就知道欺负咱家没男人！」\n小雨小声说：「哥，要不……别跟人家吵。」\n院子里安静下来。事情还没来，火气先上来了。",
+        "effects": {
+          "stats": {
+            "guts": 2
+          },
+          "relationships": {
+            "he_xiuying": 6,
+            "ma_xiaoyu": 3
+          },
+          "flags": {
+            "heard_land_rumor": true,
+            "family_alerted": true
+          },
+          "add_memory": [
+            "你把风声带回了家",
+            "he_xiuying|他心里还有这个家"
+          ],
+          "add_note": "家里有数了，也绷紧了"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "娘见人就念叨赵家想占她地。话越传越硬，赵金锁脸色也硬了。还没量地，梁子先深了。",
+            "actor": "he_xiuying",
+            "relationships": {
+              "zhao_jinsuo": -8,
+              "he_xiuying": 2
+            },
+            "stats": {
+              "face": -2
+            }
+          }
+        ],
+        "tags": [
+          "家庭",
+          "备战"
+        ]
+      },
+      {
+        "id": "c_shrug_off",
+        "text": "笑笑：「量就量呗，身正不怕影子斜。」",
+        "immediate": "王婶一愣，随即也笑：「也是，也是。」\n可她笑得有点干。你走后，她跟别人说：「马家小满，心大。」\n心大，在村里有时是夸人，有时是说你不知死活。",
+        "effects": {
+          "stats": {
+            "guts": 3,
+            "face": -3
+          },
+          "relationships": {
+            "wang_shen": -4
+          },
+          "flags": {
+            "heard_land_rumor": true
+          },
+          "add_memory": [
+            "你对量地的风声不以为意",
+            "wang_shen|这孩子不懂事"
+          ],
+          "add_note": "你没把风声当回事"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "量地前一天你才听说刘会计手里那本登记册写得对赵家有利。你准备得太晚了。",
+            "stats": {
+              "guts": -2,
+              "face": -3
+            },
+            "flags": {
+              "late_to_prepare": true
+            }
+          }
+        ],
+        "tags": [
+          "轻慢"
+        ]
+      }
+    ],
+    "tags": [
+      "风声",
+      "土地"
+    ]
+  },
+  {
+    "id": "s_li_water_early",
+    "title": "沟口的水缸",
+    "turn": 3,
+    "place": "li_home",
+    "npcs": [
+      "li_laoshuan"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 3,
+      "end": 5
+    },
+    "narration": "你从河滩回来，路过沟口。李家院门半开，水缸见了底。\n\n李老栓坐在门槛上晒太阳，晒得像一片老叶子。看见你，他咳了一声。\n\n「小满啊。」他说，「人老了，不中用了。」\n\n他没说让你挑水。他一辈子不怎么开口求人。",
+    "choices": [
+      {
+        "id": "c_carry_water",
+        "text": "挑满两担水，顺手把豆秸垛扶正。",
+        "immediate": "你把水倒进缸里，声音哗哗的。李老栓看着，没说谢。\n\n「你小时候，」他忽然说，「吃我家园子里的枣，还爬树摔过一回。」\n\n他笑了，笑里有咳嗽。你扶豆秸垛时，他就在旁边看着，像在看自己年轻时的手脚。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "health": -3,
+            "favor_out": 1
+          },
+          "relationships": {
+            "li_laoshuan": 15
+          },
+          "flags": {
+            "helped_li_early": true
+          },
+          "add_memory": [
+            "你给李老栓挑了水，扶了豆秸垛",
+            "li_laoshuan|小满是个实心眼的孩子"
+          ],
+          "add_note": "沟口的水缸满了"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "李老栓跟来看他的王校长提了一句：「小满这孩子，实心眼。」王校长对你多了几分看好。",
+            "actor": "li_laoshuan",
+            "relationships": {
+              "wang_xiaozhang": 6,
+              "li_laoshuan": 4
+            }
+          },
+          {
+            "delay": 11,
+            "type": "message",
+            "text": "李建国回来后打听谁待他爹好。有人提了你的名字。那是一句轻话，落下来却有分量。",
+            "actor": "li_jianguo",
+            "relationships": {
+              "li_jianguo": 10
+            },
+            "stats": {
+              "favor_out": 1,
+              "warmth": 3
+            }
+          },
+          {
+            "delay": 14,
+            "type": "relationships",
+            "text": "丧事上李建国看见你，眼神不一样。不是客套，是认人。",
+            "relationships": {
+              "li_jianguo": 8
+            },
+            "actor": "li_jianguo"
+          }
+        ],
+        "tags": [
+          "照应",
+          "种子"
+        ]
+      },
+      {
+        "id": "c_say_hi_leave",
+        "text": "打个招呼就走，自家的事还堆着。",
+        "immediate": "「忙着呐？」李老栓点点头，「忙点好，忙点好。」\n你走出一段，回头看他还在门槛上坐着。水缸还是浅的。",
+        "effects": {
+          "stats": {
+            "warmth": -2
+          },
+          "relationships": {
+            "li_laoshuan": -3
+          },
+          "add_memory": [
+            "你路过沟口，没有停留"
+          ],
+          "add_note": "你没有停留"
+        },
+        "hooks": [
+          {
+            "delay": 5,
+            "type": "message",
+            "text": "李老栓病重后，屋里药味重，水缸见底。你再想起那天的浅水缸，心里不是滋味。",
+            "stats": {
+              "warmth": -3,
+              "guts": -1
+            },
+            "flags": {
+              "regret_skipped_li": true
+            }
+          },
+          {
+            "delay": 11,
+            "type": "message",
+            "text": "李建国回来，听邻居说父亲病中少人问津。他没说什么，但看你的眼神客气而远。",
+            "relationships": {
+              "li_jianguo": -6
+            },
+            "actor": "li_jianguo"
+          }
+        ],
+        "tags": [
+          "错过"
+        ]
+      },
+      {
+        "id": "c_brief_help",
+        "text": "只把水缸挑满，说句「有事喊我」。",
+        "immediate": "水满了。李老栓道了谢，谢得很轻。\n你走时他咳了一串。你说的「有事喊我」飘在院子里，不知道他听清没有。",
+        "effects": {
+          "stats": {
+            "warmth": 2
+          },
+          "relationships": {
+            "li_laoshuan": 6
+          },
+          "flags": {
+            "helped_li_early": true
+          },
+          "add_memory": [
+            "你给李老栓挑了水"
+          ],
+          "add_note": "尽了本分，没多坐"
+        },
+        "hooks": [
+          {
+            "delay": 11,
+            "type": "message",
+            "text": "李建国听说有人给爹挑过水，道了声谢。人情薄一点，但还在。",
+            "relationships": {
+              "li_jianguo": 5
+            },
+            "actor": "li_jianguo"
+          }
+        ],
+        "tags": [
+          "本分"
+        ]
+      }
+    ],
+    "tags": [
+      "照应",
+      "良心"
+    ]
+  },
+  {
+    "id": "s_canon_land_day",
+    "title": "量地那日",
+    "turn": 4,
+    "place": "field",
+    "npcs": [
+      "liu_kuaiji",
+      "zhao_jinsuo",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "narration": "镇上的人来了。皮尺、登记册、搪瓷缸子茶。\n\n刘会计陪在一边，脸上挂着那种「按政策来」的笑。赵金锁早就站在自家地头，嗓门比平时高。娘攥着你的袖子，手是凉的。\n\n河滩地那条模糊的界，在太阳底下摊开。一亩二分，还是更多？谁签字，谁不多话？\n\n【定数】量地确权按期进行，大方向不因个人改变。但你站在哪里，会被记进人的账本——不是纸的，是心里的。",
+    "choices": [
+      {
+        "id": "c_stand_with_family",
+        "text": "站在娘身边，把自家的理儿讲清楚，不跟赵金锁对骂。",
+        "immediate": "你把爹留下的老凭据递过去，又指了指当年的界石松动处。声音不抖，也不高。\n\n赵金锁在旁边拍腿：「他们家就会哭穷！」\n\n刘会计把笔停了停：「都别吵。按政策来，也看实际情况。」\n\n娘的手松了一点。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4
+          },
+          "relationships": {
+            "he_xiuying": 10,
+            "liu_kuaiji": 3,
+            "zhao_jinsuo": -10
+          },
+          "flags": {
+            "stood_for_land": true,
+            "land_style_reasoned": true
+          },
+          "add_memory": [
+            "量地那日你站在娘身边讲理",
+            "he_xiuying|这回他像个当儿子的",
+            "zhao_jinsuo|马家小子跟他娘一个鼻孔出气"
+          ],
+          "add_note": "你为土地站了出来"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "登记下来：河滩地界线微调，你家守住了大半，赵家也没空手。赵金锁咽不下这口气，在村里说你「年轻气盛，不懂让着长辈」。",
+            "stats": {
+              "face": 2,
+              "guts": 2
+            },
+            "flags": {
+              "land_kept_most": true
+            },
+            "relationships": {
+              "zhao_jinsuo": -6
+            }
+          },
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "赵金锁在订婚席上见着你，冷了半张脸，又碍着人多，硬挤出个笑。那笑比骂人还难受。",
+            "actor": "zhao_jinsuo",
+            "relationships": {
+              "zhao_jinsuo": -3
+            }
+          },
+          {
+            "delay": 12,
+            "type": "message",
+            "text": "年关时三叔翻账本说：「河滩那事，你办得还行。」三叔难得的肯定。",
+            "actor": "ma_changgui",
+            "relationships": {
+              "ma_changgui": 4
+            },
+            "stats": {
+              "face": 3
+            }
+          }
+        ],
+        "tags": [
+          "土地",
+          "站位"
+        ]
+      },
+      {
+        "id": "c_compromise_zhao",
+        "text": "拉赵金锁到一边：让半步，换以后不互相使绊子。",
+        "immediate": "你把赵金锁拽到柳树底下。「赵叔，地是死的，人是活的。让半分，咱以后红白喜事还走动。」\n\n赵金锁眼睛转了转：「你小子……懂事。」\n\n回来时刘会计落笔快了。娘看你的眼神复杂：有松心，也有憋屈。",
+        "effects": {
+          "stats": {
+            "face": -4,
+            "warmth": 2,
+            "favor_out": 1
+          },
+          "relationships": {
+            "zhao_jinsuo": 12,
+            "he_xiuying": -8,
+            "liu_kuaiji": 5
+          },
+          "flags": {
+            "compromised_land": true,
+            "land_lost_a_bit": true
+          },
+          "add_memory": [
+            "量地那日你让了赵家半步",
+            "he_xiuying|他让地！他爹的脸往哪儿搁",
+            "zhao_jinsuo|小满会做人"
+          ],
+          "add_note": "你用土地换了缓和"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "娘有三天没跟你好好说话。吃饭时碗磕在桌上，当当响。",
+            "relationships": {
+              "he_xiuying": -4
+            },
+            "actor": "he_xiuying"
+          },
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "赵家订婚席，赵金锁亲自给你留了座，还敬了你一杯。面子是给足了。村里有人说你会来事，有人说你怂。",
+            "stats": {
+              "face": 4,
+              "guts": -2
+            },
+            "relationships": {
+              "zhao_jinsuo": 8
+            },
+            "actor": "zhao_jinsuo"
+          },
+          {
+            "delay": 8,
+            "type": "message",
+            "text": "李老栓病重时，赵家借了你家板车。赵金锁说：「邻里邻居的。」这话你得记着，他也记着。",
+            "relationships": {
+              "zhao_jinsuo": 5
+            },
+            "stats": {
+              "favor_in": 1
+            },
+            "actor": "zhao_jinsuo"
+          }
+        ],
+        "tags": [
+          "土地",
+          "交易"
+        ]
+      },
+      {
+        "id": "c_stay_silent",
+        "text": "不说话，让娘和三叔去周旋。",
+        "immediate": "你站在人群外沿。娘跟刘会计说话，三叔帮着翻旧账。赵金锁看见你，嘴角往下撇了撇。\n\n有人小声说：「马家小子，连个屁都不敢放。」\n\n娘回望你一眼。那一眼很重。",
+        "effects": {
+          "stats": {
+            "guts": -6,
+            "face": -6
+          },
+          "relationships": {
+            "he_xiuying": -12,
+            "zhao_jinsuo": -2,
+            "ma_changgui": -4
+          },
+          "flags": {
+            "silent_at_land": true
+          },
+          "add_memory": [
+            "量地那日你没说话",
+            "he_xiuying|要紧关头指望不上他"
+          ],
+          "add_note": "你退到了人群外沿"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "登记结果对你家不很友好。赵金锁得意了半个月。娘在灶屋里摔了一只碗。",
+            "stats": {
+              "face": -4,
+              "guts": -2
+            },
+            "flags": {
+              "land_lost_most": true
+            },
+            "relationships": {
+              "he_xiuying": -5
+            }
+          },
+          {
+            "delay": 12,
+            "type": "message",
+            "text": "年关清算时有人提起量地：「马家那孩子，不顶事。」名声这种东西，来得慢，去得快。",
+            "stats": {
+              "face": -5
+            },
+            "actor": "village"
+          }
+        ],
+        "tags": [
+          "土地",
+          "沉默"
+        ]
+      }
+    ],
+    "tags": [
+      "土地",
+      "定数"
+    ]
+  },
+  {
+    "id": "s_field_or_shop",
+    "title": "白露的生计",
+    "turn": 5,
+    "place": "field",
+    "npcs": [
+      "wang_shen"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 5,
+      "end": 5
+    },
+    "narration": "粮价下来了，农药却涨了。供销社的牌子上，数字咬人。\n\n河滩地要追肥，家里的钱要留着说亲。王婶在村口看见你，又招手。\n\n时间就这些。今天只能顾一头。",
+    "choices": [
+      {
+        "id": "c_field_work",
+        "text": "下地追肥，把庄稼当回事。",
+        "immediate": "你弯腰在河滩地里干到日头偏西。裤腿湿透，手心打泡。\n\n庄稼不说话，可它认得谁伺候过它。",
+        "effects": {
+          "stats": {
+            "health": -6,
+            "grain": 2,
+            "guts": 3,
+            "money": 25
+          },
+          "flags": {
+            "worked_field_hard": true
+          },
+          "add_memory": [
+            "白露你狠干了一天地"
+          ],
+          "add_note": "地里的活你没丢"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "stats",
+            "text": "秋收时你家收成比邻居好一点。粮食是硬的。",
+            "stats": {
+              "grain": 2,
+              "money": 40
+            },
+            "actor": "land"
+          }
+        ],
+        "tags": [
+          "农时",
+          "身体"
+        ]
+      },
+      {
+        "id": "c_shop_listen",
+        "text": "去供销社打听价钱，顺带听一耳朵话。",
+        "immediate": "货架后头两个人正在说：「这回是动真格的……有人要吃亏，有人要占便宜。」\n\n你看清了：农药价、粮价、还有谁家最近赊账多。这些数，都是世道的体温。",
+        "effects": {
+          "stats": {
+            "money": -15,
+            "guts": 1
+          },
+          "flags": {
+            "heard_price_talk": true,
+            "knows_who_owe_shop": true
+          },
+          "add_memory": [
+            "你在供销社听见价钱与闲话"
+          ],
+          "add_note": "你心里有了一本价目表"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "你提前知道农药要涨，多买了一瓶备用，省下后来的高价。",
+            "stats": {
+              "money": -30,
+              "grain": 1
+            },
+            "actor": "shop"
+          },
+          {
+            "delay": 7,
+            "type": "message",
+            "text": "你晓得谁家在供销社赊账多。王婶问起来，你没乱说，她记你嘴严。",
+            "relationships": {
+              "wang_shen": 6
+            },
+            "stats": {
+              "favor_out": 1
+            },
+            "actor": "wang_shen"
+          }
+        ],
+        "tags": [
+          "信息",
+          "世道"
+        ]
+      },
+      {
+        "id": "c_xiaoyu_school",
+        "text": "去小学帮小雨整理书包，问她念书的事。",
+        "immediate": "小雨把本子一页页抚平。「哥，王校长说我成绩还行。」\n她顿了顿。「就是……娘说，念到初中就差不多了。」\n\n王校长从办公室探出头：「小满，你来得正好。我有话跟你说。」",
+        "effects": {
+          "stats": {
+            "warmth": 5
+          },
+          "relationships": {
+            "ma_xiaoyu": 10,
+            "wang_xiaozhang": 6
+          },
+          "flags": {
+            "cared_sister_study": true
+          },
+          "add_memory": [
+            "你关心小雨念书的事",
+            "ma_xiaoyu|哥还当我是读书的料"
+          ],
+          "add_note": "你把妹妹的前程当个事"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "王校长私下跟你说：「你妹子是块读书的料。可你家这光景……你自己掂量。」他给了你一句话：人不能光靠志气过日子。",
+            "actor": "wang_xiaozhang",
+            "flags": {
+              "knows_principal_worry": true
+            }
+          },
+          {
+            "delay": 7,
+            "type": "message",
+            "text": "小雨后来跟你顶过一次娘的安排，说想继续念。娘愣了，骂了，又偷偷抹眼泪。因为你先问过她，她才敢把心里话说出来。",
+            "relationships": {
+              "ma_xiaoyu": 8,
+              "he_xiuying": -3
+            },
+            "flags": {
+              "sister_spoke_up": true
+            },
+            "actor": "ma_xiaoyu"
+          }
+        ],
+        "tags": [
+          "妹妹",
+          "念书"
+        ]
+      }
+    ],
+    "tags": [
+      "农时",
+      "生计"
+    ]
+  },
+  {
+    "id": "s_zhao_pre_wedding",
+    "title": "红纸与席面",
+    "turn": 5,
+    "place": "village",
+    "npcs": [
+      "zhao_jinsuo",
+      "wang_shen"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 5,
+      "end": 5
+    },
+    "narration": "赵家要给赵小军订婚，话已经放出来了。打谷场要摆席。\n\n赵金锁在村中街碰见你，大嗓门：「小满！到时候来喝一杯！别空手，也别太破费——哈哈！」\n\n王婶在旁边抿嘴笑。这句话里有多少是邀请，有多少是称量，你听得出。",
+    "choices": [
+      {
+        "id": "c_face_gift",
+        "text": "多随点礼，把马家的脸面撑起来。",
+        "immediate": "你心里盘了盘：爹走的时候他们随过八块。娘说要去挣面子。\n你想了想，决定再添一些。脸面这种东西，有时就是钱烧出来的。",
+        "effects": {
+          "stats": {
+            "money": -70,
+            "face": 7
+          },
+          "relationships": {
+            "zhao_jinsuo": 8,
+            "he_xiuying": 6
+          },
+          "flags": {
+            "gifted_generously": true
+          },
+          "add_memory": [
+            "你给赵家随了厚礼",
+            "zhao_jinsuo|马家懂事"
+          ],
+          "add_note": "你用钱买了面子"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "席面上赵金锁敬你酒，当众说了��「马家小子有心」。娘脸上有光。可你兜里的钱，薄了。",
+            "stats": {
+              "face": 4
+            },
+            "relationships": {
+              "he_xiuying": 5,
+              "zhao_jinsuo": 4
+            },
+            "actor": "zhao_jinsuo"
+          },
+          {
+            "delay": 9,
+            "type": "message",
+            "text": "彩礼谈判时你捉襟见肘。当时席面上的光，变成了现在的紧。",
+            "stats": {
+              "money": -1,
+              "guts": -2
+            },
+            "flags": {
+              "cash_tight_later": true
+            },
+            "actor": "family"
+          }
+        ],
+        "tags": [
+          "面子",
+          "花钱"
+        ]
+      },
+      {
+        "id": "c_modest_gift",
+        "text": "按自家的力道随礼，不硬撑。",
+        "immediate": "你包了一个不多不少的数。\n\n赵金锁接过去掂了掂，笑还在，眼里的光淡了一分。\n\n「坐，坐。」他说。",
+        "effects": {
+          "stats": {
+            "money": -25,
+            "guts": 3,
+            "face": -1
+          },
+          "relationships": {
+            "zhao_jinsuo": 1,
+            "he_xiuying": -4
+          },
+          "add_memory": [
+            "你按力道随礼，没硬撑"
+          ],
+          "add_note": "你没打肿脸充胖子"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "娘小声说你：「抠。」你没回嘴。钱是留下了，可娘脸上有点挂不住。",
+            "relationships": {
+              "he_xiuying": -3
+            },
+            "actor": "he_xiuying"
+          }
+        ],
+        "tags": [
+          "务实"
+        ]
+      },
+      {
+        "id": "c_skip_wedding_prep",
+        "text": "先不琢磨席面，把时间留给自家的事。",
+        "immediate": "赵金锁见你没接话，自顾自走了。\n\n王婶小声说：「你不去？不大好。」\n\n你心里清楚：席面是人情考场。可家里还有一堆事。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "face": -4
+          },
+          "relationships": {
+            "zhao_jinsuo": -6,
+            "wang_shen": -2
+          },
+          "flags": {
+            "underinvested_wedding": true
+          },
+          "add_memory": [
+            "你没在赵家订婚上用心"
+          ],
+          "add_note": "你把时间留给了自己，冷了人情场"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "席面散后有人说闲话：马家失了礼数。这话后来在彩礼谈判里，被陈媒婆「顺口」提过。",
+            "stats": {
+              "face": -3
+            },
+            "flags": {
+              "face_lost_wedding": true
+            },
+            "actor": "village"
+          }
+        ],
+        "tags": [
+          "冷落"
+        ]
+      }
+    ],
+    "tags": [
+      "面子",
+      "人情"
+    ]
+  },
+  {
+    "id": "s_wedding_feast",
+    "title": "打谷场的酒",
+    "turn": 6,
+    "place": "threshing",
+    "npcs": [
+      "zhao_jinsuo",
+      "zhao_xiaojun",
+      "wang_shen",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "narration": "【定数】赵家给赵小军订婚。席面摆在打谷场。红纸贴了，酒开了。\n\n赵金锁红着脸劝酒，说小军在城里如何如何。王婶在旁帮腔。忽然她压低声音，说起李老栓这几日咳得下不来床。\n\n到处是热气，也到处是眼睛。你坐在哪里，跟谁碰杯，说什么——都被看着。",
+    "choices": [
+      {
+        "id": "c_toast_zhao",
+        "text": "给赵金锁敬酒，说两句场面话。",
+        "immediate": "你端起杯子：「赵叔，小军出息，您有福气。」\n\n赵金锁笑出满脸褶子：「哈哈哈！会说话！」\n\n碰杯时你看见娘在不远处，脸色缓了。三叔在算人情账，对你点了点头。",
+        "effects": {
+          "stats": {
+            "face": 4,
+            "warmth": -1
+          },
+          "relationships": {
+            "zhao_jinsuo": 8,
+            "zhao_xiaojun": 4,
+            "ma_changgui": 3
+          },
+          "flags": {
+            "played_face_game": true
+          },
+          "add_memory": [
+            "席面上你敬了赵家酒",
+            "zhao_jinsuo|马家小子给脸"
+          ],
+          "add_note": "你在人情场上走了一步"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "赵小军跟你多说了两句厂里的事。招工的口子，你比别人先摸到一点。",
+            "flags": {
+              "heard_job_hint": true
+            },
+            "relationships": {
+              "zhao_xiaojun": 6
+            }
+          },
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "赵金锁后来在量地余波和借板车的事上，没有把你往死里踩。人情账，席面上就记了一笔。",
+            "relationships": {
+              "zhao_jinsuo": 4
+            },
+            "actor": "zhao_jinsuo"
+          }
+        ],
+        "tags": [
+          "场面",
+          "赵家"
+        ]
+      },
+      {
+        "id": "c_listen_li_news",
+        "text": "趁乱打听李老栓的事，席面散了就去沟口。",
+        "immediate": "你凑到王婶那桌。「老栓头？」王婶叹气，「咳得下不来床。他儿子在南方……」\n\n你没等席面散，就往沟口走。\n\n有人在背后说：「赵家办事，他倒往孤老头家跑。」也有人说：「这孩子心善。」",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "face": -3
+          },
+          "relationships": {
+            "li_laoshuan": 8,
+            "wang_shen": 2,
+            "zhao_jinsuo": -4
+          },
+          "flags": {
+            "left_feast_for_li": true
+          },
+          "add_memory": [
+            "你没吃完席就去沟口看李老栓"
+          ],
+          "add_note": "你把人情席面撂下了"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "沟口的屋里药味重。你帮他倒了痰盂，他拉着你的手，手背上青筋像干掉的河床。他没说谢，说了句「你小时候……」",
+            "relationships": {
+              "li_laoshuan": 10
+            },
+            "flags": {
+              "helped_li_when_ignored": true
+            },
+            "actor": "li_laoshuan"
+          },
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "赵金锁觉得你扫了他的兴。梁子又深一分。可沟口那盏快灭的灯，因为你亮了一下。",
+            "relationships": {
+              "zhao_jinsuo": -5,
+              "li_laoshuan": 4
+            },
+            "actor": "zhao_jinsuo"
+          }
+        ],
+        "tags": [
+          "良心",
+          "代价"
+        ]
+      },
+      {
+        "id": "c_stay_quiet_eat",
+        "text": "闷头吃席，少说少错。",
+        "immediate": "菜上来了，你吃饭。酒过三巡，赵金锁看你一眼：「小满，咋不说话？」\n\n「饿。」你说。\n\n一桌人笑了。笑声不坏，可也没把你当回事。",
+        "effects": {
+          "stats": {
+            "face": -2,
+            "health": 3
+          },
+          "relationships": {
+            "zhao_jinsuo": -1
+          },
+          "add_memory": [
+            "席面上你只顾吃饭"
+          ],
+          "add_note": "你做了个透明人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来有人提起订婚席：「马家那孩子，不上台面。」这话轻，落在说亲的时候就重了。",
+            "stats": {
+              "face": -4
+            },
+            "actor": "village"
+          }
+        ],
+        "tags": [
+          "低调"
+        ]
+      }
+    ],
+    "tags": [
+      "面子",
+      "人情"
+    ]
+  },
+  {
+    "id": "s_sister_confide",
+    "title": "书包带子",
+    "turn": 7,
+    "place": "home",
+    "npcs": [
+      "ma_xiaoyu"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 7,
+      "end": 9
+    },
+    "narration": "夜里，小雨坐在门槛上搓书包带子。\n\n「哥，」她说，「王校长说我考镇中学有戏。」\n\n她声音很小，怕屋里娘听见。\n\n「可是陈家那边……要是一万八，我就不念了。我去打工。」\n\n她说「我不念了」的时候，像在念别人的课文。",
+    "choices": [
+      {
+        "id": "c_back_sister_study",
+        "text": "跟她说：念书的事，哥想办法，别自己先退。",
+        "immediate": "小雨眼睛湿了。「哥，咱家……」\n\n「咱家的事，大人想办法。」你说，「你的事，是把书读出来。」\n\n她没哭出声。她不敢哭出声。",
+        "effects": {
+          "stats": {
+            "warmth": 8,
+            "guts": 4,
+            "favor_in": 1
+          },
+          "relationships": {
+            "ma_xiaoyu": 15
+          },
+          "flags": {
+            "promised_sister_study": true
+          },
+          "add_memory": [
+            "你答应小雨为念书想办法",
+            "ma_xiaoyu|哥站在我这边"
+          ],
+          "add_note": "你把妹妹的前程扛上了肩"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "小雨念书更用功了。她把奖状压在枕头底下，没给娘看——怕娘说她不懂事。",
+            "relationships": {
+              "ma_xiaoyu": 5
+            },
+            "actor": "ma_xiaoyu"
+          },
+          {
+            "delay": 5,
+            "type": "message",
+            "text": "彩礼谈判时你更难开口让步，因为你应过妹妹。难，也硬气。",
+            "stats": {
+              "guts": 5
+            },
+            "flags": {
+              "must_fight_bride_for_sister": true
+            },
+            "actor": "ma_xiaoyu"
+          },
+          {
+            "delay": 12,
+            "type": "message",
+            "text": "年关时小雨在你本子上写了一行小字：谢谢哥。那张纸你留了很多年。",
+            "stats": {
+              "warmth": 5
+            },
+            "relationships": {
+              "ma_xiaoyu": 10
+            },
+            "actor": "ma_xiaoyu"
+          }
+        ],
+        "tags": [
+          "妹妹",
+          "承诺"
+        ]
+      },
+      {
+        "id": "c_pragmatic_advice",
+        "text": "劝她现实点：先把亲事的事稳住，书以后还能念。",
+        "immediate": "小雨把带子松开了。「哥，你是说……先答应？」\n\n「先别把路堵死。」你说，「家里难，你得懂事。」\n\n「我懂事。」她说。她一直很懂事。懂事得让你难受。",
+        "effects": {
+          "stats": {
+            "warmth": -3,
+            "guts": -2,
+            "face": 2
+          },
+          "relationships": {
+            "ma_xiaoyu": -8,
+            "he_xiuying": 5
+          },
+          "flags": {
+            "told_sister_to_be_practical": true
+          },
+          "add_memory": [
+            "你劝小雨先懂事",
+            "ma_xiaoyu|连哥也这么说"
+          ],
+          "add_note": "你让她把委屈咽下去"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "小雨在说亲的事上不太开口了。她更懂事了，也更远了。",
+            "relationships": {
+              "ma_xiaoyu": -5
+            },
+            "actor": "ma_xiaoyu"
+          },
+          {
+            "delay": 11,
+            "type": "message",
+            "text": "亲事若定，小雨可能真的去打工。多年后她未必怨你，但你们之间多了一层说不清的东西。",
+            "relationships": {
+              "ma_xiaoyu": -4
+            },
+            "flags": {
+              "sister_gave_up_lightly": true
+            },
+            "actor": "ma_xiaoyu"
+          }
+        ],
+        "tags": [
+          "现实"
+        ]
+      },
+      {
+        "id": "c_listen_only",
+        "text": "听她说完，不打包票，也不泼冷水。",
+        "immediate": "你就听着。她断断续续说了镇中学、说了学费、说了陈家、说了娘的白头发。\n\n说完她自己笑了一下：「我跟你说这些干啥。」\n\n你递过去半块干粮。她接了。",
+        "effects": {
+          "stats": {
+            "warmth": 4
+          },
+          "relationships": {
+            "ma_xiaoyu": 8
+          },
+          "add_memory": [
+            "你听小雨把心事说完",
+            "ma_xiaoyu|哥肯听"
+          ],
+          "add_note": "你在场，没给假承诺"
+        },
+        "hooks": [
+          {
+            "delay": 6,
+            "type": "message",
+            "text": "小雨后来更愿意跟你说体己话。信任是慢慢堆的，你堆了一点。",
+            "relationships": {
+              "ma_xiaoyu": 6
+            },
+            "actor": "ma_xiaoyu"
+          }
+        ],
+        "tags": [
+          "倾听"
+        ]
+      }
+    ],
+    "tags": [
+      "妹妹",
+      "念书"
+    ]
+  },
+  {
+    "id": "s_li_bedside_choice",
+    "title": "病床前的账",
+    "turn": 8,
+    "place": "li_home",
+    "npcs": [
+      "li_laoshuan"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "narration": "【定数】李老栓倒了。咳得下不来床。屋里药味重，痰盂在床脚。\n\n他拉着你的手，想说什么，被咳嗽打断。\n\n「小满啊……不碍事。」他说。\n\n你今天还有别的事：地里、家里、钱。可这双手拉着你。",
+    "choices": [
+      {
+        "id": "c_stay_tend",
+        "text": "留下来照应一天：挑水、熬药、倒痰盂。",
+        "immediate": "你把水缸挑满，药熬上，痰盂倒了洗净。\n\n李老栓睡睡醒醒。醒来看见你，又说：「人老了，不中用了。」\n\n这一次，他说得比往常轻。",
+        "effects": {
+          "stats": {
+            "warmth": 8,
+            "health": -8,
+            "favor_out": 1
+          },
+          "relationships": {
+            "li_laoshuan": 15
+          },
+          "flags": {
+            "tended_li_bedside": true
+          },
+          "add_memory": [
+  "meta": {
+    "id": "xinghuagou",
+    "title": "杏花沟 · 一季秋事",
+    "version": "0.1.0",
+    "source_note": "数据包由制作阶段从原创样本《杏花沟秋事》提取结构后长出血肉。原文不进入本包。游玩时不调用 AI。",
+    "intro": "立秋刚过。杏花沟的风已经硬了。\n\n你叫马小满，二十二。爹前年病逝，看病欠下三叔三千块。娘何秀英要强，妹妹小雨正被说亲。你在村小学帮工——可小学听说要撤并。\n\n河滩那块地，和赵家界石不清。沟口的李老栓咳得越来越厉害。隔壁孙家锅里快见底。风声说镇上要重新量地。\n\n书上写定的事会按期来。你改不了大势。\n你只能决定：人情往哪儿欠，时间给谁用，脸面值多少，手艺练不练，最后——你成了谁。",
+    "license_note": "结构可复用；若公开分享需另行原创化与人工复核。",
+    "extract_source": {
+      "source_id": "xinghuagou_autumn",
+      "source_title": "杏花沟秋事",
+      "source_type": "original_sample",
+      "extraction_note": "制作阶段从短篇样本提取的结构。原文仅用于受控提取，不进入可玩数据包。本文件是「结构」而非「内容复述」。",
+      "conflict_sources": [
+        "land_boundary",
+        "sister_bride_price",
+        "debt_favor",
+        "lonely_elder",
+        "school_closing",
+        "rumor_network",
+        "poor_neighbor",
+        "clan_share",
+        "craft_path",
+        "sister_marriage_aguo",
+        "city_truth"
+      ],
+      "canon_events": [
+        "canon_land_survey",
+        "canon_zhao_engagement",
+        "canon_li_illness",
+        "canon_li_return",
+        "canon_bride_pressure",
+        "canon_li_death",
+        "canon_school_close",
+        "canon_year_end"
+      ]
+    },
+    "play_space_note": "玩家是马小满，不是原著命运的改写者。可玩空间：土地站位、人情债、手艺立身、照应孤老与穷邻、包办婚事里的护妹、去留抉择。定数不改，处境与身份可改。小世界冲突靠面子、人情、土地、婚丧、离开归来驱动。"
+  },
+  "resources_note": "时间只有一份；钱与粮是硬资源；面子、人情、手艺是软资源，通过具体的人传导回来。小世界的压力不是拯救村庄，而是：账、脸、学、病、走、留。",
+  "calendar": {
+    "name": "杏花沟秋冬季",
+    "turns": [
+      {
+        "index": 0,
+        "label": "立秋前",
+        "note": "话起了，事还没落下来"
+      },
+      {
+        "index": 1,
+        "label": "立秋",
+        "note": "风硬了"
+      },
+      {
+        "index": 2,
+        "label": "处暑",
+        "note": "风声四起"
+      },
+      {
+        "index": 3,
+        "label": "白露",
+        "note": "粮价跌了"
+      },
+      {
+        "index": 4,
+        "label": "秋分",
+        "note": "镇上来人了"
+      },
+      {
+        "index": 5,
+        "label": "秋分后",
+        "note": "尘埃未定，人心已定"
+      },
+      {
+        "index": 6,
+        "label": "寒露",
+        "note": "赵家办事"
+      },
+      {
+        "index": 7,
+        "label": "寒露后",
+        "note": "席面散了，话留下"
+      },
+      {
+        "index": 8,
+        "label": "霜降",
+        "note": "沟口的烟囱不冒烟了"
+      },
+      {
+        "index": 9,
+        "label": "霜降后",
+        "note": "病床前的账"
+      },
+      {
+        "index": 10,
+        "label": "立冬",
+        "note": "有人回来了"
+      },
+      {
+        "index": 11,
+        "label": "立冬后",
+        "note": "岔路口"
+      },
+      {
+        "index": 12,
+        "label": "小雪",
+        "note": "亲事催到硬处了"
+      },
+      {
+        "index": 13,
+        "label": "小雪后",
+        "note": "钱与脸面的谈判"
+      },
+      {
+        "index": 14,
+        "label": "大雪",
+        "note": "沟口传来了哭声"
+      },
+      {
+        "index": 15,
+        "label": "大雪后",
+        "note": "丧事人情"
+      },
+      {
+        "index": 16,
+        "label": "冬至",
+        "note": "红头文件"
+      },
+      {
+        "index": 17,
+        "label": "冬至后",
+        "note": "走还是留"
+      },
+      {
+        "index": 18,
+        "label": "大寒",
+        "note": "年关一清，人就定了"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "id": "money",
+      "name": "钱",
+      "start": 220,
+      "min": 0,
+      "max": 9999,
+      "description": "家里可动用的现钱（元）。"
+    },
+    {
+      "id": "grain",
+      "name": "粮",
+      "start": 5,
+      "min": 0,
+      "max": 24,
+      "description": "囤粮，可借出也可救急"
+    },
+    {
+      "id": "face",
+      "name": "面子",
+      "start": 50,
+      "min": 0,
+      "max": 100,
+      "description": "在村里说话的分量"
+    },
+    {
+      "id": "guts",
+      "name": "硬气",
+      "start": 40,
+      "min": 0,
+      "max": 100,
+      "description": "心里那股不轻易弯的劲"
+    },
+    {
+      "id": "warmth",
+      "name": "温度",
+      "start": 40,
+      "min": 0,
+      "max": 100,
+      "description": "你对人是否上心，冷热自知"
+    },
+    {
+      "id": "health",
+      "name": "身子",
+      "start": 78,
+      "min": 0,
+      "max": 100,
+      "description": "累狠了会垮"
+    },
+    {
+      "id": "favor_out",
+      "name": "欠你",
+      "start": 0,
+      "min": 0,
+      "max": 20,
+      "description": "别人欠你的人情"
+    },
+    {
+      "id": "favor_in",
+      "name": "你欠",
+      "start": 2,
+      "min": 0,
+      "max": 20,
+      "description": "你欠下的人情与账"
+    },
+    {
+      "id": "craft",
+      "name": "手艺",
+      "start": 35,
+      "min": 0,
+      "max": 100,
+      "description": "识字、算账、农活把式——能换成活路的本事"
+    }
+  ],
+  "places": [
+    {
+      "id": "home",
+      "name": "马家院子",
+      "description": "三间土房，晾衣绳常搭着被单。"
+    },
+    {
+      "id": "school",
+      "name": "村小学",
+      "description": "两排平房，旗杆有点歪。"
+    },
+    {
+      "id": "field",
+      "name": "河滩地",
+      "description": "一亩二分，和赵家只隔一条模糊的界。"
+    },
+    {
+      "id": "village",
+      "name": "村中街",
+      "description": "消息最快的地方。"
+    },
+    {
+      "id": "shop",
+      "name": "供销社",
+      "description": "油盐酱醋，价钱与闲话。"
+    },
+    {
+      "id": "li_home",
+      "name": "沟口李家",
+      "description": "孤门独院，枣树老了。"
+    },
+    {
+      "id": "zhao_home",
+      "name": "赵家院子",
+      "description": "摩托常停门口，礼盒摞在窗台。"
+    },
+    {
+      "id": "accountant",
+      "name": "刘会计家",
+      "description": "灯常亮到后半夜。"
+    },
+    {
+      "id": "threshing",
+      "name": "打谷场",
+      "description": "办事摆席的地方。"
+    },
+    {
+      "id": "clinic",
+      "name": "卫生所",
+      "description": "药味重，周医生的听诊器冰凉。"
+    },
+    {
+      "id": "zhen",
+      "name": "镇上",
+      "description": "供销社大些，人杂些，话也虚些。"
+    },
+    {
+      "id": "ancestral",
+      "name": "马家宗祠",
+      "description": "议事、摊派、排座次的地方。"
+    },
+    {
+      "id": "river",
+      "name": "河沿",
+      "description": "洗菜、说闲话、想心事。"
+    },
+    {
+      "id": "gate",
+      "name": "村口",
+      "description": "车停的地方，也是人走的地方。"
+    },
+    {
+      "id": "sun_home",
+      "name": "孙家",
+      "description": "泥墙塌半边，娃的书包挂在钉子上。"
+    },
+    {
+      "id": "chen_home",
+      "name": "陈家",
+      "description": "门楼新些，规矩也多些。"
+    }
+  ],
+  "characters": [
+    {
+      "id": "he_xiuying",
+      "name": "何秀英",
+      "age": 48,
+      "role": "娘",
+      "faction": "马家",
+      "speech_style": "刀子嘴，短句，带刺，护犊",
+      "speech_examples": [
+        "你爹要在，哪轮得到他们骑头上拉屎！",
+        "我自己有手。",
+        "你敢！"
+      ],
+      "wants": "儿女体面、不被看扁、人情还干净",
+      "blocks": "丧夫、体弱、穷但死要强",
+      "costs": "要面子就要出血；护孩子会跟孩子吵",
+      "summary": "叠被单叠到一半会停手的人。"
+    },
+    {
+      "id": "ma_changgui",
+      "name": "马长贵",
+      "age": 52,
+      "role": "三叔",
+      "faction": "马家宗族",
+      "speech_style": "慢条斯理，账本不离手",
+      "speech_examples": [
+        "亲兄弟明算账。",
+        "账是账，情是情。",
+        "你倒有闲心。"
+      ],
+      "wants": "账清、被当正经长辈敬着",
+      "blocks": "怕被说逼侄子",
+      "costs": "太算计伤亲情；太松自己吃亏",
+      "summary": "软皮本上的每一笔都记得清。"
+    },
+    {
+      "id": "zhao_jinsuo",
+      "name": "赵金锁",
+      "age": 50,
+      "role": "东邻",
+      "faction": "赵家",
+      "speech_style": "大嗓门，好强，爱说大话",
+      "speech_examples": [
+        "不是我吹……",
+        "地里的事，别跟我争那一拃半拃的。",
+        "我儿子在城里。"
+      ],
+      "wants": "地界占先、有脸、儿子被看见",
+      "blocks": "好吹牛，未必靠得住",
+      "costs": "争狠了结死仇",
+      "summary": "面子是他呼吸的空气。"
+    },
+    {
+      "id": "wang_shen",
+      "name": "王婶",
+      "age": 55,
+      "role": "村中消息节点",
+      "faction": "村中",
+      "speech_style": "气音，凑近，神秘",
+      "speech_examples": [
+        "哎我跟你说个事你可别跟别人说……",
+        "我也是听人说的。",
+        "你可别说出去啊。"
+      ],
+      "wants": "消息灵通、被人围着听",
+      "blocks": "嘴快容易坏事",
+      "costs": "传话得罪人；不传没人找她",
+      "summary": "半把韭菜，一肚皮风声。"
+    },
+    {
+      "id": "li_laoshuan",
+      "name": "李老栓",
+      "age": 71,
+      "role": "沟口孤老",
+      "faction": "独居",
+      "speech_style": "少言，叹气，咳嗽",
+      "speech_examples": [
+        "咳……人老了，不中用了。",
+        "小满啊……",
+        "不碍事。"
+      ],
+      "wants": "病中有人照应、别给儿子添堵、走得不孤单",
+      "blocks": "子远、自尊强",
+      "costs": "开口求人丢脸；不开口受罪",
+      "summary": "院里的豆秸垛歪着，像他这几年的腰。"
+    },
+    {
+      "id": "li_jianguo",
+      "name": "李建国",
+      "age": 42,
+      "role": "李老栓之子",
+      "faction": "城/沟口",
+      "speech_style": "干脆，城里习气，话不多但直",
+      "speech_examples": [
+        "我爸提过你。",
+        "去一个带一个。",
+        "这烟你拿着。"
+      ],
+      "wants": "尽孝、给年轻人出路、报答善待父亲的人",
+      "blocks": "工厂走不开",
+      "costs": "报恩花钱花人情",
+      "summary": "回来一趟，像往灶里添一把火。"
+    },
+    {
+      "id": "wang_xiaozhang",
+      "name": "王校长",
+      "age": 47,
+      "role": "村小学校长",
+      "faction": "学校",
+      "speech_style": "认真，稍书面",
+      "speech_examples": [
+        "孩子不能没学上。",
+        "人不能光靠志气过日子。",
+        "你自己掂量。"
+      ],
+      "wants": "保住学、给小满指条路",
+      "blocks": "撤并是上头定的",
+      "costs": "说真话得罪人",
+      "summary": "捆作业本的时候很慢，像怕吵醒谁。"
+    },
+    {
+      "id": "chen_meipo",
+      "name": "陈媒婆",
+      "age": 58,
+      "role": "媒人",
+      "faction": "两边",
+      "speech_style": "圆滑，车轱辘话",
+      "speech_examples": [
+        "两边都是好人家，就看诚意了。",
+        "陈家也不是不讲理。",
+        "你家小雨模样周正。"
+      ],
+      "wants": "把亲事说成",
+      "blocks": "两边都有硬要求",
+      "costs": "压价或压面子；不成两头怨",
+      "summary": "鞋底磨得快，腿比嘴勤。"
+    },
+    {
+      "id": "liu_kuaiji",
+      "name": "刘会计",
+      "age": 45,
+      "role": "村会计",
+      "faction": "村政",
+      "speech_style": "公文腔混圆场",
+      "speech_examples": [
+        "按政策来，也看实际情况。",
+        "这个我得再核一核。",
+        "不是我一个人说了算。"
+      ],
+      "wants": "差事办稳、别沾火星",
+      "blocks": "上面催，下面都要脸",
+      "costs": "公道得罪人；偏私留把柄",
+      "summary": "他的灯，是村里的风向标。"
+    },
+    {
+      "id": "ma_xiaoyu",
+      "name": "马小雨",
+      "age": 17,
+      "role": "妹妹",
+      "faction": "马家",
+      "speech_style": "小声，懂事，藏着委屈",
+      "speech_examples": [
+        "我不念了，我去打工。",
+        "姐那边的理儿我懂。",
+        "哥……"
+      ],
+      "wants": "继续念书、不拖累家里",
+      "blocks": "家里要她说亲",
+      "costs": "争取伤娘的心；退让毁自己",
+      "summary": "书包放下得很轻，怕人听见。"
+    },
+    {
+      "id": "zhao_xiaojun",
+      "name": "赵小军",
+      "age": 25,
+      "role": "赵金锁之子",
+      "faction": "城/赵家",
+      "speech_style": "自信，略浮，新词多",
+      "speech_examples": [
+        "厂里宿舍都安排好了。",
+        "窝在这儿有啥出息。",
+        "跟我出去见见世面。"
+      ],
+      "wants": "带年轻人出去、自己站住",
+      "blocks": "村里人观望",
+      "costs": "带走人带走牵挂",
+      "summary": "摩托后座的礼盒比他的话实。"
+    },
+    {
+      "id": "zhou_dehou",
+      "name": "周德厚",
+      "age": 56,
+      "role": "村医",
+      "faction": "卫生所",
+      "speech_style": "慢，专业词夹土话，爱说「养着」",
+      "speech_examples": [
+        "咳成这样，得养着。",
+        "药贵，命更贵。",
+        "我这是看病，不是看钱。"
+      ],
+      "wants": "把人治好、别欠卫生所账、有个能接班的",
+      "blocks": "药贵、病人拖、自己眼也花",
+      "costs": "赊账收不回；说真话得罪家属",
+      "summary": "药箱比他的背还沉。"
+    },
+    {
+      "id": "sun_youfu",
+      "name": "孙有福",
+      "age": 38,
+      "role": "邻里穷人",
+      "faction": "孙家",
+      "speech_style": "低、短，说完就搓手",
+      "speech_examples": [
+        "小满……借点粮。",
+        "开春就还。",
+        "我不是不记恩。"
+      ],
+      "wants": "一家四口不饿、女儿别失学、别被人戳脊梁",
+      "blocks": "地少、妻弱、嘴笨",
+      "costs": "开口借就是丢脸；不借孩子挨饿",
+      "summary": "院墙塌了半边，拿泥糊着。"
+    },
+    {
+      "id": "sun_dama",
+      "name": "孙大妈",
+      "age": 36,
+      "role": "孙有福妻",
+      "faction": "孙家",
+      "speech_style": "声音细，爱把苦往肚里咽",
+      "speech_examples": [
+        "够了够了。",
+        "难为你了。",
+        "娃他爹嘴笨，你别见怪。"
+      ],
+      "wants": "娃有口热的、别让男人再低头",
+      "blocks": "体弱、针线换不来几文",
+      "costs": "接受接济就是矮人一头",
+      "summary": "灶膛里的火，能省就省。"
+    },
+    {
+      "id": "chen_aguo",
+      "name": "陈阿国",
+      "age": 20,
+      "role": "说亲对象",
+      "faction": "陈家",
+      "speech_style": "实诚，略木，开口带「俺爹说」",
+      "speech_examples": [
+        "俺爹说，彩礼是体面。",
+        "我……我没别的意思。",
+        "小雨她，念书好吗？」"
+      ],
+      "wants": "把亲事办成、别让爹丢脸、对小雨好",
+      "blocks": "爹要彩礼硬、自己没主见",
+      "costs": "顺爹伤小雨；护小雨顶撞家",
+      "summary": "站在陈媒婆后头，像根还没长直的树。"
+    },
+    {
+      "id": "ma_linzi",
+      "name": "马林子",
+      "age": 24,
+      "role": "堂弟",
+      "faction": "马家宗族",
+      "speech_style": "滑，嘴甜，遇事往后缩",
+      "speech_examples": [
+        "哥，咱谁跟谁。",
+        "三叔那边我去说。",
+        "钱我记着呢！」"
+      ],
+      "wants": "借钱渡过说亲关、在村里有面子",
+      "blocks": "手散、好赌小钱、爹管不住",
+      "costs": "借多了伤亲戚；不借落「不顾本家」",
+      "summary": "软皮本上很快又会多一行。"
+    },
+    {
+      "id": "zhen_wang",
+      "name": "王干事",
+      "age": 40,
+      "role": "镇上干部",
+      "faction": "镇",
+      "speech_style": "官话，爱说「按文件来」",
+      "speech_examples": [
+        "这是上头精神。",
+        "有困难可以反映。",
+        "按文件来。"
+      ],
+      "wants": "把差事办完、别出乱子",
+      "blocks": "村里关系复杂",
+      "costs": "太硬伤和气；太软完不成",
+      "summary": "文件夹边角磨白了，他还在用。"
+    },
+    {
+      "id": "guihua",
+      "name": "桂花",
+      "age": 19,
+      "role": "王婶侄女/打工妹",
+      "faction": "村中",
+      "speech_style": "快、脆，城里的词往外蹦",
+      "speech_examples": [
+        "在城里站住脚才算本事。",
+        "小满哥你太实在了。",
+        "外头工资是高，可也熬人。"
+      ],
+      "wants": "挣嫁妆、别回村种地、有人记得她",
+      "blocks": "家里要她寄钱、外头没根",
+      "costs": "寄钱掏空自己；不寄被骂没良心",
+      "summary": "回来时指甲剪得很短，手却白了些。"
+    }
+  ],
+  "canon_events": [
+    {
+      "id": "canon_land_survey",
+      "turn": 4,
+      "title": "镇工作组进村量地",
+      "description": "量地确权按期进行。界线以登记与丈量为准。有人多一分，有人少一分。个人的哭闹与情面，不改变「按政策来」的大方向——但你在场上的位置，决定这分地记在谁的委屈里。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 2,
+          "text": "听说镇上要重新量地。河滩那块，界石早就不清了。",
+          "source": "王婶墙根",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 3,
+          "text": "粮价下来了，农药倒涨了两成。有人说这回是动真格的。",
+          "source": "供销社货架后",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 3,
+          "text": "刘会计家的灯，亮到后半夜。",
+          "source": "路过的人",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 2,
+          "text": "有人看见赵金锁夜里往刘会计家送过东西。",
+          "source": "墙根",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 3,
+          "text": "镇上喇叭念了「稳定承包关系」，没人细听，可刘会计抄了半页。",
+          "source": "村部",
+          "canon_event": "canon_land_survey"
+        }
+      ]
+    },
+    {
+      "id": "canon_zhao_engagement",
+      "turn": 6,
+      "title": "赵家给赵小军订婚",
+      "description": "订婚席摆在打谷场。赵金锁红光满面。来不来、随多少、说什么——村里人情在此亮相。婚事本身按两家定好的方向走，不因你改变。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 5,
+          "text": "赵金锁放话了，要办一场热闹的。",
+          "source": "村中街",
+          "canon_event": "canon_zhao_engagement"
+        },
+        {
+          "turn": 5,
+          "text": "供销社有人赊账买糖，说是给赵家预备的。",
+          "source": "供销社",
+          "canon_event": "canon_zhao_engagement"
+        },
+        {
+          "turn": 5,
+          "text": "赵小军在供销社打电话，说「酒席要办得像样」。",
+          "source": "供销社",
+          "canon_event": "canon_zhao_engagement"
+        }
+      ]
+    },
+    {
+      "id": "canon_li_illness",
+      "turn": 8,
+      "title": "李老��病重卧床",
+      "description": "沟口的李老栓倒了。咳得下不来床。儿子在南方。病的加重是人之常情，不以你是否照应为转移——但你是否在场，会被人记住。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 7,
+          "text": "王婶说李老栓这几日咳得厉害。沟口烟囱有时不冒烟。",
+          "source": "王婶",
+          "canon_event": "canon_li_illness"
+        },
+        {
+          "turn": 7,
+          "text": "周医生从沟口出来，摇着头说「得养着」，药钱却没提。",
+          "source": "路遇",
+          "canon_event": "canon_li_illness"
+        }
+      ]
+    },
+    {
+      "id": "canon_li_return",
+      "turn": 10,
+      "title": "李建国回村，招工消息扩散",
+      "description": "李建国回来了，带着招工的消息。厂里要人，年轻肯干的，管住。年轻人的岔路口，摆在了村口。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 9,
+          "text": "镇上有人在问招工的事。听说南边厂子缺人。",
+          "source": "村中街",
+          "canon_event": "canon_li_return"
+        },
+        {
+          "turn": 9,
+          "text": "孙有福跟人打听「南边厂子要不要女工」，说完自己先红了脸。",
+          "source": "村中",
+          "canon_event": "canon_li_return"
+        }
+      ]
+    },
+    {
+      "id": "canon_bride_pressure",
+      "turn": 12,
+      "title": "陈家催定彩礼",
+      "description": "说亲说到硬处了。一万八。陈媒婆两头走。娘叠被单时停住了手。这不是商量，是摊牌。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 11,
+          "text": "陈媒婆这几日往你家跑得勤。",
+          "source": "看得见的人",
+          "canon_event": "canon_bride_pressure"
+        },
+        {
+          "turn": 11,
+          "text": "有人说陈家那边也有人上门，催着要回话。",
+          "source": "王婶",
+          "canon_event": "canon_bride_pressure"
+        },
+        {
+          "turn": 11,
+          "text": "陈家托人问「马家姑娘念到哪了」，像在称斤两。",
+          "source": "传话",
+          "canon_event": "canon_bride_pressure"
+        }
+      ]
+    },
+    {
+      "id": "canon_li_death",
+      "turn": 14,
+      "title": "李老栓去世",
+      "description": "大雪前后，李老栓没熬过去。丧事在沟口办。白事上的人情，比席面上的更硬。谁来帮忙、谁上多少账——这些会留下来。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 13,
+          "text": "夜里狗叫得紧。有人往沟口送鸡蛋。",
+          "source": "夜里的动静",
+          "canon_event": "canon_li_death"
+        },
+        {
+          "turn": 13,
+          "text": "沟口的狗叫了一夜。周医生的药箱进了又出。",
+          "source": "夜里",
+          "canon_event": "canon_li_death"
+        }
+      ]
+    },
+    {
+      "id": "canon_school_close",
+      "turn": 16,
+      "title": "村小撤并红头文件",
+      "description": "文件下来了。开春并入镇中心校。你在小学的帮工，到头了。王校长把一摞作业本捆好，捆得很慢。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 15,
+          "text": "上头来人看过校舍了。王校长这几日话少。",
+          "source": "学校",
+          "canon_event": "canon_school_close"
+        },
+        {
+          "turn": 15,
+          "text": "桌椅上了册子，像要抬走。孩子们还在跳房子。",
+          "source": "学校",
+          "canon_event": "canon_school_close"
+        }
+      ]
+    },
+    {
+      "id": "canon_year_end",
+      "turn": 18,
+      "title": "年关人情清算",
+      "description": "大寒。账本摊开。钱债、人情债、席面账、丧事份子——一桩一桩。这一年你是什么人，在这些账里被说清楚。定数到齐，你到站了。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 17,
+          "text": "三叔把软皮本擦了又擦。供销社扯红纸的人多了。",
+          "source": "年关的动静",
+          "canon_event": "canon_year_end"
+        },
+        {
+          "turn": 17,
+          "text": "有人开始躲债，有人开始要债。年关还没到，心先到了。",
+          "source": "村中",
+          "canon_event": "canon_year_end"
+        }
+      ]
+    }
+  ],
+  "players": [
+    {
+      "id": "ma_xiaoman",
+      "name": "马小满",
+      "age": 22,
+      "bio": "爹走后，你是家里唯一的男人——虽然你还担不起「男人」这个词在村里意味的所有事。\n娘要强，妹妹懂事，三叔记账，东邻赵家盯着你家河滩地。\n你不是主角。主角的人生有人写好了。你身上那些空白，才是你能落笔的地方。",
+      "start_stats": {},
+      "start_relationships": {
+        "he_xiuying": 40,
+        "ma_changgui": 10,
+        "zhao_jinsuo": -5,
+        "wang_shen": 15,
+        "li_laoshuan": 25,
+        "li_jianguo": 0,
+        "wang_xiaozhang": 30,
+        "chen_meipo": 5,
+        "liu_kuaiji": 5,
+        "ma_xiaoyu": 50,
+        "zhao_xiaojun": 0
+      },
+      "start_flags": {},
+      "start_memory": [
+        "爹马长根前年病逝，看病欠三叔马长贵三千元",
+        "小时候吃过李老栓家的枣"
+      ]
+    }
+  ],
+  "world_rules": [
+    "人情债必须记在具体的人身上，并在日后以具体方式回来",
+    "面子可以挣、可以让、可以丢；丢了不自动回来",
+    "定数（量地/订婚/病故/撤并/年关）不可改写，只能准备与面对",
+    "节气与农时决定时间感：不是「第几章」，是「白露该干什么」",
+    "开口求人是代价；不开口也是代价",
+    "城里的消息既是出路也是抽水机——带走年轻人"
+  ]
+  }
