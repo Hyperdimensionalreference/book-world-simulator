@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "书中世界 · 结构提取 schema",
+  "description": "制作阶段从任意书籍提取的结构。引擎不读原文，只吃 package；本文件是 extract 与 package 之间的契约。",
+  "type": "object",
+  "required": ["meta", "world_frame", "conflict_sources", "characters", "canon_events", "play_space_note"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["source_id", "source_title"],
+      "properties": {
+        "source_id": {"type": "string"},
+        "source_title": {"type": "string"},
+        "source_type": {"type": "string", "enum": ["original_sample", "copyrighted_book", "public_domain"]},
+        "extraction_note": {"type": "string"},
+        "schema_version": {"type": "string"}
+      }
+    },
+    "world_frame": {
+      "type": "object",
+      "required": ["scale", "setting", "time_unit", "power_map", "threat_style"],
+      "properties": {
+        "scale": {"type": "string", "enum": ["one_room", "one_street", "village", "town", "city_block", "ship_station", "other"]},
+        "setting": {"type": "string"},
+        "time_unit": {"type": "string"},
+        "power_map": {"type": "string"},
+        "threat_style": {"type": "string"}
+      }
+    },
+    "conflict_sources": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "description", "stakes"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "type": {
+            "type": "string",
+            "enum": [
+              "material", "family_face", "social_debt", "care_debt",
+              "exit_or_stay", "reputation", "housing", "status",
+              "marriage", "illness", "money", "kinship", "other"
+            ]
+          },
+          "description": {"type": "string"},
+          "stakes": {"type": "string"}
+        }
+      }
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role", "wants", "blocks", "costs", "speech_style"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "role": {"type": "string"},
+          "wants": {"type": "string"},
+          "blocks": {"type": "string"},
+          "costs": {"type": "string"},
+          "speech_style": {"type": "string"},
+          "speech_examples": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "canon_events": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "turn", "title", "description", "foreshadow"],
+        "properties": {
+          "id": {"type": "string"},
+          "turn": {"type": "integer", "minimum": 1},
+          "title": {"type": "string"},
+          "description": {"type": "string"},
+          "foreshadow": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+          "fixed": {"type": "boolean", "default": true}
+        }
+      }
+    },
+    "player_suggestions": {
+      "type": "array",
+      "description": "可扮演小人物（非原著主角）",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "bio", "wants", "blocks"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "age": {"type": "integer"},
+          "bio": {"type": "string"},
+          "wants": {"type": "string"},
+          "blocks": {"type": "string"},
+          "start_relationships": {"type": "object"}
+        }
+      }
+    },
+    "play_space_note": {"type": "string"},
+    "avoid": {"type": "array", "items": {"type": "string"}}
+  }
+}
