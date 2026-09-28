@@ -1,0 +1,1893 @@
+[
+  {
+    "id": "s_open",
+    "title": "开场",
+    "turn": 0,
+    "place": "home",
+    "npcs": [
+      "player",
+      "mu_qin",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "开局"
+    ],
+    "narration": "1987 年，北方国营纺织厂筒子楼。楼道共用水池，谁家吵架全楼都听得见。厂里要分房，名单没下来之前，所有人都在算。\n\n厂技术员，工龄中等。父亲走得早，母亲腿疾，弟弟订婚等着房。你不是劳模，也不是刺头——你身上那些没人写过的空白，才是你能落笔的地方。\n\n书上写定的事会按期来。你能改的是处境、关系、代价，以及你成为谁。",
+    "choices": [
+      {
+        "id": "c_open_focus",
+        "text": "先顾眼前最急的一头。",
+        "effects": {
+          "stats": {
+            "guts": 3
+          },
+          "add_memory": [
+            "你选择先顾眼前"
+          ],
+          "add_note": "你从具体难处下手"
+        },
+        "hooks": []
+      },
+      {
+        "id": "c_open_listen",
+        "text": "先听风声，弄清谁想要什么。",
+        "effects": {
+          "stats": {
+            "craft": 3,
+            "warmth": 2
+          },
+          "add_memory": [
+            "你先听了风声"
+          ],
+          "add_note": "你把耳朵竖起来了"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "你比别人早半步知道门道。",
+            "stats": {
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_open_hard",
+        "text": "把最难看的事先扛起来。",
+        "effects": {
+          "stats": {
+            "guts": 5,
+            "health": -3,
+            "favor_in": 1
+          },
+          "add_memory": [
+            "你先扛了难看的事"
+          ],
+          "add_note": "你把担子放上了肩"
+        },
+        "hooks": []
+      }
+    ]
+  },
+  {
+    "id": "s_conf_housing_list",
+    "title": "分房名单",
+    "turn": 1,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 1,
+      "end": 3
+    },
+    "tags": [
+      "冲突",
+      "housing"
+    ],
+    "narration": "压力点：分房名单\n\n厂里只腾出两套房。工龄、婚姻、贡献、关系都折算成分数，又都不完全是分数。\n\n赌注是：住得开住不开，以及在楼道里说话的音量。\n\n林卫东在旁边，开口是：「分到房、护住弟弟的亲事、不被厂里甩掉」\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "player": 6
+          },
+          "add_memory": [
+            "你在「分房名单」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在分房名单的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "mu_qin": 4
+          },
+          "add_memory": [
+            "你在「分房名单」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "player": 10
+          },
+          "add_memory": [
+            "你在「分房名单」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "player",
+            "relationships": {
+              "player": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_shift_honor",
+    "title": "技术比武与先进",
+    "turn": 2,
+    "place": "work",
+    "npcs": [
+      "mu_qin",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 4
+    },
+    "tags": [
+      "冲突",
+      "status"
+    ],
+    "narration": "压力点：技术比武与先进\n\n比武名次影响先进名额，先进又影响分房。手艺和人情缠在一起。\n\n赌注是：脸面、名额、师傅怎么看。\n\n母亲在旁边，开口是：「儿子有房成家，别像自己熬一辈子」\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "mu_qin": 6
+          },
+          "add_memory": [
+            "你在「技术比武与先进」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在技术比武与先进的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "mu_qin"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "di_di": 4
+          },
+          "add_memory": [
+            "你在「技术比武与先进」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "mu_qin": 10
+          },
+          "add_memory": [
+            "你在「技术比武与先进」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "mu_qin",
+            "relationships": {
+              "mu_qin": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_wedding_bride",
+    "title": "弟弟的婚事",
+    "turn": 3,
+    "place": "street",
+    "npcs": [
+      "di_di",
+      "zhu_ren"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 3,
+      "end": 5
+    },
+    "tags": [
+      "冲突",
+      "marriage"
+    ],
+    "narration": "压力点：弟弟的婚事\n\n女方要「有房」才领证。房子还是影子，婚事已经逼到眼前。\n\n赌注是：家里的安生与弟弟的前程。\n\n林卫民在旁边，开口是：「娶小周、别拖累哥」\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "di_di": 6
+          },
+          "add_memory": [
+            "你在「弟弟的婚事」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在弟弟的婚事的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "di_di"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "zhu_ren": 4
+          },
+          "add_memory": [
+            "你在「弟弟的婚事」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "di_di": 10
+          },
+          "add_memory": [
+            "你在「弟弟的婚事」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "di_di",
+            "relationships": {
+              "di_di": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_injury_favor",
+    "title": "工伤与人情",
+    "turn": 4,
+    "place": "home",
+    "npcs": [
+      "zhu_ren",
+      "lao_zhang"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 4,
+      "end": 6
+    },
+    "tags": [
+      "冲突",
+      "care_debt"
+    ],
+    "narration": "压力点：工伤与人情\n\n老工友出工伤，垫钱还是躲事，决定你后半季的名声。\n\n赌注是：钱、良心、厂里的评价。\n\n马主任在旁边，开口是：「把车间稳住、房分得「说得过去」」\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "zhu_ren": 6
+          },
+          "add_memory": [
+            "你在「工伤与人情」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在工伤与人情的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "zhu_ren"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "lao_zhang": 4
+          },
+          "add_memory": [
+            "你在「工伤与人情」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "zhu_ren": 10
+          },
+          "add_memory": [
+            "你在「工伤与人情」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "zhu_ren",
+            "relationships": {
+              "zhu_ren": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_factory_wind",
+    "title": "改制风声与去留",
+    "turn": 1,
+    "place": "edge",
+    "npcs": [
+      "lao_zhang",
+      "xiao_zhou"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 1,
+      "end": 3
+    },
+    "tags": [
+      "冲突",
+      "exit_or_stay"
+    ],
+    "narration": "压力点：改制风声与去留\n\n厂子要「减员增效」。走有走的活法，留有留的憋屈。\n\n赌注是：铁饭碗还是前途。\n\n张师傅在旁边，开口是：「徒弟出息、自己体面退休」\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "lao_zhang": 6
+          },
+          "add_memory": [
+            "你在「改制风声与去留」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在改制风声与去留的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "lao_zhang"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "xiao_zhou": 4
+          },
+          "add_memory": [
+            "你在「改制风声与去留」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "lao_zhang": 10
+          },
+          "add_memory": [
+            "你在「改制风声与去留」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "lao_zhang",
+            "relationships": {
+              "lao_zhang": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_floor_reputation",
+    "title": "楼道舆论",
+    "turn": 2,
+    "place": "hub",
+    "npcs": [
+      "xiao_zhou",
+      "li_saodao"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 4
+    },
+    "tags": [
+      "冲突",
+      "reputation"
+    ],
+    "narration": "压力点：楼道舆论\n\n水池边的话比厂务会还快。一件事怎么做，会变成「这人怎么样」。\n\n赌注是：被记住的方式。\n\n周晓梅在旁边，开口是：「有房成家，也要被人尊重」\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "xiao_zhou": 6
+          },
+          "add_memory": [
+            "你在「楼道舆论」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在楼道舆论的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "xiao_zhou"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "li_saodao": 4
+          },
+          "add_memory": [
+            "你在「楼道舆论」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "xiao_zhou": 10
+          },
+          "add_memory": [
+            "你在「楼道舆论」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "xiao_zhou",
+            "relationships": {
+              "xiao_zhou": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_room_list",
+    "title": "风声 · 分房名单张榜",
+    "turn": 3,
+    "place": "street",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 3
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 房管科的灯连着亮\n· 有人开始往主任家送礼\n· 楼道里打听「工龄怎么算」的多了\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_room_list": true
+          },
+          "add_memory": [
+            "你为「分房名单张榜」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_room_list": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_room_list",
+    "title": "分房名单张榜",
+    "turn": 4,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】分房名单张榜\n\n房管科贴榜。两套房，名字写死。哭闹和关系都不直接改榜，但决定谁在下一次「腾退」里被记住。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_room_list": true
+          },
+          "add_memory": [
+            "你在「分房名单张榜」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "player": 8
+          },
+          "flags": {
+            "beside:canon_room_list": true
+          },
+          "add_memory": [
+            "你在「分房名单张榜」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "player": 6
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_room_list": true
+          },
+          "add_memory": [
+            "你在「分房名单张榜」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_skill_contest",
+    "title": "风声 · 厂技术比武",
+    "turn": 5,
+    "place": "street",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 4,
+      "end": 5
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 张师傅天天加练\n· 有人请高工开小灶\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_skill_contest": true
+          },
+          "add_memory": [
+            "你为「厂技术比武」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_skill_contest": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_skill_contest",
+    "title": "厂技术比武",
+    "turn": 6,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】厂技术比武\n\n比武照常举行。名次影响先进名额。场上拼的是手，场下还有别的。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_skill_contest": true
+          },
+          "add_memory": [
+            "你在「厂技术比武」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "player": 8
+          },
+          "flags": {
+            "beside:canon_skill_contest": true
+          },
+          "add_memory": [
+            "你在「厂技术比武」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "player": 6
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_skill_contest": true
+          },
+          "add_memory": [
+            "你在「厂技术比武」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_brother_wedding",
+    "title": "风声 · 弟弟婚事逼到眼前",
+    "turn": 9,
+    "place": "street",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 8,
+      "end": 9
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 周晓梅来得勤了又少了\n· 母亲开始翻箱子底\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_brother_wedding": true
+          },
+          "add_memory": [
+            "你为「弟弟婚事逼到眼前」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_brother_wedding": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_brother_wedding",
+    "title": "弟弟婚事逼到眼前",
+    "turn": 10,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】弟弟婚事逼到眼前\n\n女方家放出话：没房不领证。日子都看好了。这事不会因为你的努力自动好起来。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_brother_wedding": true
+          },
+          "add_memory": [
+            "你在「弟弟婚事逼到眼前」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "player": 8
+          },
+          "flags": {
+            "beside:canon_brother_wedding": true
+          },
+          "add_memory": [
+            "你在「弟弟婚事逼到眼前」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "player": 6
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_brother_wedding": true
+          },
+          "add_memory": [
+            "你在「弟弟婚事逼到眼前」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_injury",
+    "title": "风声 · 张师傅工伤",
+    "turn": 12,
+    "place": "street",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 11,
+      "end": 12
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 张师傅说最近眼花\n· 车间里少了玩笑\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_injury": true
+          },
+          "add_memory": [
+            "你为「张师傅工伤」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_injury": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_injury",
+    "title": "张师傅工伤",
+    "turn": 13,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】张师傅工伤\n\n车间事故。张师傅倒下。医药费、护理、厂里说法，一起压过来。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_injury": true
+          },
+          "add_memory": [
+            "你在「张师傅工伤」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "player": 8
+          },
+          "flags": {
+            "beside:canon_injury": true
+          },
+          "add_memory": [
+            "你在「张师傅工伤」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "player": 6
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_injury": true
+          },
+          "add_memory": [
+            "你在「张师傅工伤」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_factory_wave",
+    "title": "风声 · 减员增效风声落地",
+    "turn": 15,
+    "place": "street",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 14,
+      "end": 15
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 上头来了工作组\n· 有人开始学车、找门路\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_factory_wave": true
+          },
+          "add_memory": [
+            "你为「减员增效风声落地」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_factory_wave": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_factory_wave",
+    "title": "减员增效风声落地",
+    "turn": 16,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】减员增效风声落地\n\n厂里开会传达精神。名单随后公布。留与走，都不是一句话的事。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么���份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_factory_wave": true
+          },
+          "add_memory": [
+            "你在「减员增效风声落地」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "player": 8
+          },
+          "flags": {
+            "beside:canon_factory_wave": true
+          },
+          "add_memory": [
+            "你在「减员增效风声落地」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "player": 6
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_factory_wave": true
+          },
+          "add_memory": [
+            "你在「减员增效风声落地」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_year_settle",
+    "title": "风声 · 年终清账与楼道清算",
+    "turn": 18,
+    "place": "street",
+    "npcs": [
+      "player",
+      "mu_qin"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 17,
+      "end": 18
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 楼道里开始算人情\n· 母亲让你把借据翻出来\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_year_settle": true
+          },
+          "add_memory": [
+            "你为「年终清账与楼道清算」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_year_settle": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_year_settle",
+    "title": "年终清账与楼道清算",
+    "turn": 19,
+    "place": "hub",
+    "npcs": [
+      "player",
+      "di_di"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】年终清账与楼道清算\n\n一年到头。谁争了房、谁垫了钱、谁在比武里下过手、谁在楼道里传过话，都到了被说清楚的时候。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_year_settle": true
+          },
+          "add_memory": [
+            "你在「年终清账与楼道清算」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "player": 8
+          },
+          "flags": {
+            "beside:canon_year_settle": true
+          },
+          "add_memory": [
+            "你在「年终清账与楼道清算」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "player": 6
+            },
+            "actor": "player"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_year_settle": true
+          },
+          "add_memory": [
+            "你在「年终清账与楼道清算」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_final",
+    "title": "回望",
+    "turn": 20,
+    "place": "edge",
+    "npcs": [
+      "player"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "回望"
+    ],
+    "narration": "该来的定数都来了。你欠过谁、帮过谁、怕过什么、放不下什么——这些是你的。\n\n这就够下一段用了。",
+    "choices": [
+      {
+        "id": "c_final_yes",
+        "text": "把自己这一段，在心里过一遍。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": 2
+          },
+          "add_memory": [
+            "你认真回望了自己的这一段"
+          ],
+          "add_note": "你看清了自己"
+        },
+        "hooks": []
+      }
+    ]
+  }
+]
