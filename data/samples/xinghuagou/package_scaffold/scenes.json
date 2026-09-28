@@ -1,0 +1,2823 @@
+[
+  {
+    "id": "s_open",
+    "title": "开场",
+    "turn": 0,
+    "place": "home",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "开局"
+    ],
+    "narration": "北方山村杏花沟，秋收到年关，约当立秋至大寒\n\n你是这个世界里的普通人，不是被写定的主角。\n\n书上写定的事会按期来。你能改的是处境、关系、代价，以及你成为谁。",
+    "choices": [
+      {
+        "id": "c_open_focus",
+        "text": "先顾眼前最急的一头。",
+        "effects": {
+          "stats": {
+            "guts": 3
+          },
+          "add_memory": [
+            "你选择先顾眼前"
+          ],
+          "add_note": "你从具体难处下手"
+        },
+        "hooks": []
+      },
+      {
+        "id": "c_open_listen",
+        "text": "先听风声，弄清谁想要什么。",
+        "effects": {
+          "stats": {
+            "craft": 3,
+            "warmth": 2
+          },
+          "add_memory": [
+            "你先听了风声"
+          ],
+          "add_note": "你把耳朵竖起来了"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "你比别人早半步知道门道。",
+            "stats": {
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_open_hard",
+        "text": "把最难看的事先扛起来。",
+        "effects": {
+          "stats": {
+            "guts": 5,
+            "health": -3,
+            "favor_in": 1
+          },
+          "add_memory": [
+            "你先扛了难看的事"
+          ],
+          "add_note": "你把担子放上了肩"
+        },
+        "hooks": []
+      }
+    ]
+  },
+  {
+    "id": "s_conf_land_boundary",
+    "title": "河滩地界石不清",
+    "turn": 1,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 1,
+      "end": 3
+    },
+    "tags": [
+      "冲突",
+      "material"
+    ],
+    "narration": "压力点：河滩地界石不清\n\n马家与赵家河滩地相邻，界石模糊，确权重划时是零和争夺\n\n赌注是：一分地 = 脸面 + 口粮 + 说话音量。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "ma_xiaoman": 6
+          },
+          "add_memory": [
+            "你在「河滩地界石不清」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在河滩地界石不清的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "he_xiuying": 4
+          },
+          "add_memory": [
+            "你在「河滩地界石不清」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "ma_xiaoman": 10
+          },
+          "add_memory": [
+            "你在「河滩地界石不清」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "ma_xiaoman",
+            "relationships": {
+              "ma_xiaoman": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_sister_bride_price",
+    "title": "妹妹彩礼与面子",
+    "turn": 2,
+    "place": "work",
+    "npcs": [
+      "he_xiuying",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 4
+    },
+    "tags": [
+      "冲突",
+      "family_face"
+    ],
+    "narration": "压力点：妹妹彩礼与面子\n\n陈家要彩礼一万八，母亲好强，父亲早逝后家底薄，妹妹想读书却懂事退让\n\n赌注是：钱、妹妹的前程、母亲的尊严、邻里怎么看马家。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "he_xiuying": 6
+          },
+          "add_memory": [
+            "你在「妹妹彩礼与面子」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在妹妹彩礼与面子的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "he_xiuying"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "ma_changgui": 4
+          },
+          "add_memory": [
+            "你在「妹妹彩礼与面子」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "he_xiuying": 10
+          },
+          "add_memory": [
+            "你在「妹妹彩礼与面子」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "he_xiuying",
+            "relationships": {
+              "he_xiuying": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_debt_favor",
+    "title": "三叔的人情债",
+    "turn": 3,
+    "place": "street",
+    "npcs": [
+      "ma_changgui",
+      "zhao_jinsuo"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 3,
+      "end": 5
+    },
+    "tags": [
+      "冲突",
+      "social_debt"
+    ],
+    "narration": "压力点：三叔的人情债\n\n父病借债三千，账情交织；三叔精明但记恩也���账\n\n赌注是：还钱会掏空，不还抬不起头；还情的方式有多种。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "ma_changgui": 6
+          },
+          "add_memory": [
+            "你在「三叔的人情债」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在三叔的人情债的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "ma_changgui"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "zhao_jinsuo": 4
+          },
+          "add_memory": [
+            "你在「三叔的人情债」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "ma_changgui": 10
+          },
+          "add_memory": [
+            "你在「三叔的人情债」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "ma_changgui",
+            "relationships": {
+              "ma_changgui": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_lonely_elder",
+    "title": "孤老李老栓与城里儿子",
+    "turn": 4,
+    "place": "home",
+    "npcs": [
+      "zhao_jinsuo",
+      "wang_shen"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 4,
+      "end": 6
+    },
+    "tags": [
+      "冲突",
+      "care_debt"
+    ],
+    "narration": "压力点：孤老李老栓与城里儿子\n\n玩家幼年受其照应，如今其病重子远；帮忙费时间，不帮留遗憾与口实\n\n赌注是：时间、良心、日后李建国的态度、村里评价。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "zhao_jinsuo": 6
+          },
+          "add_memory": [
+            "你在「孤老李老栓与城里儿子」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在孤老李老栓与城里儿子的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "zhao_jinsuo"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "wang_shen": 4
+          },
+          "add_memory": [
+            "你在「孤老李老栓与城里儿子」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "zhao_jinsuo": 10
+          },
+          "add_memory": [
+            "你在「孤老李老栓与城里儿子」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "zhao_jinsuo",
+            "relationships": {
+              "zhao_jinsuo": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_school_closing",
+    "title": "村小撤并与出路",
+    "turn": 1,
+    "place": "edge",
+    "npcs": [
+      "wang_shen",
+      "li_laoshuan"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 1,
+      "end": 3
+    },
+    "tags": [
+      "冲突",
+      "exit_or_stay"
+    ],
+    "narration": "压力点：村小撤并与出路\n\n帮工岗位将消失；招工机会与照顾母亲的责任拉扯\n\n赌注是：离开=挣活钱丢下家；留下=尽孝却可能窝死。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "wang_shen": 6
+          },
+          "add_memory": [
+            "你在「村小撤并与出路」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在村小撤并与出路的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "wang_shen"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "li_laoshuan": 4
+          },
+          "add_memory": [
+            "你在「村小撤并与出路」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "wang_shen": 10
+          },
+          "add_memory": [
+            "你在「村小撤并与出路」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "wang_shen",
+            "relationships": {
+              "wang_shen": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_rumor_network",
+    "title": "风声与体面",
+    "turn": 2,
+    "place": "hub",
+    "npcs": [
+      "li_laoshuan",
+      "li_jianguo"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 4
+    },
+    "tags": [
+      "冲突",
+      "reputation"
+    ],
+    "narration": "压力点：风声与体面\n\n王婶等人口耳相传；一件事怎么做会变成「马家小子是个什么人」\n\n赌注是：名声影响说亲、借还、席面座次、量地时谁帮你说话。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "li_laoshuan": 6
+          },
+          "add_memory": [
+            "你在「风声与体面」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在风声与体面的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "li_laoshuan"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "li_jianguo": 4
+          },
+          "add_memory": [
+            "你在「风声与体面」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "li_laoshuan": 10
+          },
+          "add_memory": [
+            "你在「风声与体面」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "li_laoshuan",
+            "relationships": {
+              "li_laoshuan": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_poor_neighbor",
+    "title": "孙家断顿与孩子失学",
+    "turn": 3,
+    "place": "work",
+    "npcs": [
+      "li_jianguo",
+      "wang_xiaozhang"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 3,
+      "end": 5
+    },
+    "tags": [
+      "冲突",
+      "neighbor_mercy"
+    ],
+    "narration": "压力点：孙家断顿与孩子失学\n\n穷邻居借粮、丫头念书；帮是掏自己，不帮是关上门\n\n赌注是：粮、钱、名声、良心。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "li_jianguo": 6
+          },
+          "add_memory": [
+            "你在「孙家断顿与孩子失学」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在孙家断顿与孩子失学的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "li_jianguo"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "wang_xiaozhang": 4
+          },
+          "add_memory": [
+            "你在「孙家断顿与孩子失学」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "li_jianguo": 10
+          },
+          "add_memory": [
+            "你在「孙家断顿与孩子失学」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "li_jianguo",
+            "relationships": {
+              "li_jianguo": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_clan_share",
+    "title": "宗祠摊派与话语权",
+    "turn": 4,
+    "place": "street",
+    "npcs": [
+      "wang_xiaozhang",
+      "chen_meipo"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 4,
+      "end": 6
+    },
+    "tags": [
+      "冲突",
+      "clan"
+    ],
+    "narration": "压力点：宗祠摊派与话语权\n\n修渠办席照应银；出多出少都是脸面政治\n\n赌注是：钱、在宗族里说话的分量。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "wang_xiaozhang": 6
+          },
+          "add_memory": [
+            "你在「宗祠摊派与话语权」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在宗祠摊派与话语权的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "wang_xiaozhang"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "chen_meipo": 4
+          },
+          "add_memory": [
+            "你在「宗祠摊派与话语权」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "wang_xiaozhang": 10
+          },
+          "add_memory": [
+            "你在「宗祠摊派与话语权」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "wang_xiaozhang",
+            "relationships": {
+              "wang_xiaozhang": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_craft_path",
+    "title": "手艺与立身",
+    "turn": 1,
+    "place": "home",
+    "npcs": [
+      "chen_meipo",
+      "liu_kuaiji"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 1,
+      "end": 3
+    },
+    "tags": [
+      "冲突",
+      "capability"
+    ],
+    "narration": "压力点：手艺与立身\n\n算账/认药/写字，决定能否在镇上和村里换活路\n\n赌注是：craft 数值与日后工价。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "chen_meipo": 6
+          },
+          "add_memory": [
+            "你在「手艺与立身」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在手艺与立身的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "chen_meipo"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "liu_kuaiji": 4
+          },
+          "add_memory": [
+            "你在「手艺与立身」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "chen_meipo": 10
+          },
+          "add_memory": [
+            "你在「手艺与立身」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "chen_meipo",
+            "relationships": {
+              "chen_meipo": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_sister_marriage_aguo",
+    "title": "包办里的真心",
+    "turn": 2,
+    "place": "edge",
+    "npcs": [
+      "liu_kuaiji",
+      "ma_xiaoyu"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 4
+    },
+    "tags": [
+      "冲突",
+      "marriage"
+    ],
+    "narration": "压力点：包办里的真心\n\n陈阿国不是恶人，被规矩捆着；玩家看见包办中的裂缝\n\n赌注是：小雨的命运与哥哥的介入方式。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "liu_kuaiji": 6
+          },
+          "add_memory": [
+            "你在「包办里的真心」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在包办里的真心的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "liu_kuaiji"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "ma_xiaoyu": 4
+          },
+          "add_memory": [
+            "你在「包办里的真心」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "liu_kuaiji": 10
+          },
+          "add_memory": [
+            "你在「包办里的真心」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "liu_kuaiji",
+            "relationships": {
+              "liu_kuaiji": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_conf_city_truth",
+    "title": "城里的真话与虚火",
+    "turn": 3,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoyu",
+      "zhao_xiaojun"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 3,
+      "end": 5
+    },
+    "tags": [
+      "冲突",
+      "exit_myth"
+    ],
+    "narration": "压力点：城里的真话与虚火\n\n桂花讲苦，赵小军讲风光；走的决定质量取决于听谁\n\n赌注是：去留判断与家人承受。\n两头都想要，或者两头都不想失去。",
+    "choices": [
+      {
+        "id": "c_face_on",
+        "text": "正面接住，把脸面和道理做足。",
+        "effects": {
+          "stats": {
+            "face": 5,
+            "guts": 3,
+            "money": -15
+          },
+          "relationships": {
+            "ma_xiaoyu": 6
+          },
+          "add_memory": [
+            "你在「城里的真话与虚火」上正面接住"
+          ],
+          "add_note": "你把体面买回来了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "后来在城里的真话与虚火的事上，有人念你一句「做事实」。",
+            "stats": {
+              "face": 2
+            },
+            "actor": "ma_xiaoyu"
+          }
+        ]
+      },
+      {
+        "id": "c_side_deal",
+        "text": "私下把事办成，先顾里子。",
+        "effects": {
+          "stats": {
+            "money": 20,
+            "face": -3,
+            "craft": 3
+          },
+          "relationships": {
+            "zhao_xiaojun": 4
+          },
+          "add_memory": [
+            "你在「城里的真话与虚火」上先顾里子"
+          ],
+          "add_note": "你把里子保住了"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "有人背后说你会打算。会打算，也是名声的一种。",
+            "stats": {
+              "face": -1,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_help_other",
+        "text": "把时间让给更难的人。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "favor_out": 1,
+            "health": -4
+          },
+          "relationships": {
+            "ma_xiaoyu": 10
+          },
+          "add_memory": [
+            "你在「城里的真话与虚火」上让了更难的人"
+          ],
+          "add_note": "你把难处往后挪了半步"
+        },
+        "hooks": [
+          {
+            "delay": 4,
+            "type": "message",
+            "text": "那人后来记得。记得这种东西，来得慢，落得重。",
+            "stats": {
+              "warmth": 3
+            },
+            "actor": "ma_xiaoyu",
+            "relationships": {
+              "ma_xiaoyu": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_land_survey",
+    "title": "风声 · 镇工作组进村量地",
+    "turn": 3,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 2,
+      "end": 3
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 王婶墙根嚼舌\n· 粮价下跌农药上涨\n· 刘会计家灯火通明\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_land_survey": true
+          },
+          "add_memory": [
+            "你为「镇工作组进村量地」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_land_survey": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_land_survey",
+    "title": "镇工作组进村量地",
+    "turn": 4,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】镇工作组进村量地\n\n确权量地按期进行，界线以登记与丈量为准，个人哭闹不改变「按政策来」的结果方向。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到��前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_land_survey": true
+          },
+          "add_memory": [
+            "你在「镇工作组进村量地」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_land_survey": true
+          },
+          "add_memory": [
+            "你在「镇工作组进村量地」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_land_survey": true
+          },
+          "add_memory": [
+            "你在「镇工作组进村量地」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_zhao_engagement",
+    "title": "风声 · 赵家办订婚席",
+    "turn": 5,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 4,
+      "end": 5
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 赵金锁提前放话要办大事\n· 供销社有人赊账买糖\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_zhao_engagement": true
+          },
+          "add_memory": [
+            "你为「赵家办订婚席」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_zhao_engagement": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_zhao_engagement",
+    "title": "赵家办订婚席",
+    "turn": 6,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】赵家办订婚席\n\n赵家为赵小军订婚，席面在打谷场，村里人情在此亮相。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_zhao_engagement": true
+          },
+          "add_memory": [
+            "你在「赵家办订婚席」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_zhao_engagement": true
+          },
+          "add_memory": [
+            "你在「赵家办订婚席」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_zhao_engagement": true
+          },
+          "add_memory": [
+            "你在「赵家办订婚席」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_li_illness",
+    "title": "风声 · 李老栓病重",
+    "turn": 7,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 6,
+      "end": 7
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 王婶提起李老栓咳嗽\n· 沟口烟囱有时不冒烟\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_li_illness": true
+          },
+          "add_memory": [
+            "你为「李老栓病重」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_li_illness": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_li_illness",
+    "title": "李老栓病重",
+    "turn": 8,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】李老栓病重\n\n孤老李老栓卧床，儿子在南方，病情按人走的规律加重，不以玩家是否照应为转移。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_li_illness": true
+          },
+          "add_memory": [
+            "你在「李老栓病重」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_li_illness": true
+          },
+          "add_memory": [
+            "你在「李老栓病重」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_li_illness": true
+          },
+          "add_memory": [
+            "你在「李老栓病重」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_li_return",
+    "title": "风声 · 李建国回村并传出招工消息",
+    "turn": 9,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 8,
+      "end": 9
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 镇上传来招工风\n· 摩托声响进村\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_li_return": true
+          },
+          "add_memory": [
+            "你为「李建国回村并传出招工消息」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_li_return": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_li_return",
+    "title": "李建国回村并传出招工消息",
+    "turn": 10,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】李建国回村并传出招工消息\n\n工厂招工与「带人出去」的消息扩散，年轻人的岔路口摆在面前。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_li_return": true
+          },
+          "add_memory": [
+            "你在「李建国回村并传出招工消息」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_li_return": true
+          },
+          "add_memory": [
+            "你在「李建国回村并传出招工消息」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_li_return": true
+          },
+          "add_memory": [
+            "你在「李建国回村并传出招工消息」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_bride_pressure",
+    "title": "风声 · 陈家催定彩礼",
+    "turn": 11,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 10,
+      "end": 11
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 陈媒婆两头走\n· 娘叠被单时停手\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_bride_pressure": true
+          },
+          "add_memory": [
+            "你为「陈家催定彩礼」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_bride_pressure": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_bride_pressure",
+    "title": "陈家催定彩礼",
+    "turn": 12,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】陈家催定彩礼\n\n说亲进入硬谈判，彩礼数额成为面子与家底的正面冲突。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_bride_pressure": true
+          },
+          "add_memory": [
+            "你在「陈家催定彩礼」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_bride_pressure": true
+          },
+          "add_memory": [
+            "你在「陈家催定彩礼」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_bride_pressure": true
+          },
+          "add_memory": [
+            "你在「陈家催定彩礼」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_li_death",
+    "title": "风声 · 李老栓去世",
+    "turn": 13,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 12,
+      "end": 13
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 夜里狗叫得紧\n· 有人往沟口送鸡蛋\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_li_death": true
+          },
+          "add_memory": [
+            "你为「李老栓去世」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_li_death": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_li_death",
+    "title": "李老栓去世",
+    "turn": 14,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】李老栓去世\n\n病故，丧事在沟口办理，人情网在白事上重新排序。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_li_death": true
+          },
+          "add_memory": [
+            "你在「李老栓去世」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_li_death": true
+          },
+          "add_memory": [
+            "你在「李老栓去世」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_li_death": true
+          },
+          "add_memory": [
+            "你在「李老栓去世」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_school_close",
+    "title": "风声 · 村小撤并红头文件",
+    "turn": 15,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 14,
+      "end": 15
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 王校长整理作业本\n· 上头来人看校舍\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_school_close": true
+          },
+          "add_memory": [
+            "你为「村小撤并红头文件」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_school_close": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_school_close",
+    "title": "村小撤并红头文件",
+    "turn": 16,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】村小撤并红头文件\n\n小学开春并入镇中心校，帮工岗位消失成为定局。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面对。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_school_close": true
+          },
+          "add_memory": [
+            "你在「村小撤并红头文件」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_school_close": true
+          },
+          "add_memory": [
+            "你在「村小撤并红头文件」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_school_close": true
+          },
+          "add_memory": [
+            "你在「村小撤并红头文件」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_rumor_canon_year_end",
+    "title": "风声 · 年关人情清算",
+    "turn": 17,
+    "place": "street",
+    "npcs": [
+      "ma_xiaoman",
+      "he_xiuying"
+    ],
+    "trigger": {
+      "type": "window",
+      "start": 16,
+      "end": 17
+    },
+    "tags": [
+      "预感"
+    ],
+    "narration": "有话在传：\n· 三叔把软皮本擦了又擦\n· 供销社扯红纸的人多了\n\n你可以准备，也可以当没听见。",
+    "choices": [
+      {
+        "id": "c_prepare",
+        "text": "顺着风声做些准备。",
+        "effects": {
+          "stats": {
+            "craft": 4,
+            "guts": 2,
+            "money": -10
+          },
+          "flags": {
+            "prepared:canon_year_end": true
+          },
+          "add_memory": [
+            "你为「年关人情清算」做了准备"
+          ],
+          "add_note": "预感落到了手上"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "真到那日，你比别人少一分慌。",
+            "stats": {
+              "guts": 3,
+              "craft": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_ignore_rumor",
+        "text": "不听闲话，过自己的。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": -2
+          },
+          "flags": {
+            "ignored:canon_year_end": true
+          },
+          "add_memory": [
+            "你没把风声当回事"
+          ],
+          "add_note": "耳朵关上了一扇"
+        },
+        "hooks": [
+          {
+            "delay": 1,
+            "type": "message",
+            "text": "事到临头，你才发现自己准备得太晚。",
+            "stats": {
+              "guts": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_canon_canon_year_end",
+    "title": "年关人情清算",
+    "turn": 18,
+    "place": "hub",
+    "npcs": [
+      "ma_xiaoman",
+      "ma_changgui"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "定数"
+    ],
+    "narration": "【定数】年关人情清算\n\n账本、份子、往来在年关结算；你成为谁，在这些账里被说清楚。\n\n这件事按书上写定的方向发生。你不能改写它。你只能选择以什么身份、什么处境、和谁一起面���。",
+    "choices": [
+      {
+        "id": "c_stand_visible",
+        "text": "站到人前去，承担这一日。",
+        "effects": {
+          "stats": {
+            "guts": 6,
+            "face": 4,
+            "health": -5
+          },
+          "flags": {
+            "faced:canon_year_end": true
+          },
+          "add_memory": [
+            "你在「年关人情清算」那日站在了人前"
+          ],
+          "add_note": "你没有躲"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "有人记住了你在场。名是这样一点点长出来的。",
+            "stats": {
+              "face": 3
+            }
+          }
+        ]
+      },
+      {
+        "id": "c_stand_beside",
+        "text": "站在要紧的人身边。",
+        "effects": {
+          "stats": {
+            "warmth": 6,
+            "guts": 3
+          },
+          "relationships": {
+            "ma_xiaoman": 8
+          },
+          "flags": {
+            "beside:canon_year_end": true
+          },
+          "add_memory": [
+            "你在「年关人情清算」那日守着要紧的人"
+          ],
+          "add_note": "你守住了具体的人"
+        },
+        "hooks": [
+          {
+            "delay": 3,
+            "type": "message",
+            "text": "那人后来把这份在场还了回来，也许很迟。",
+            "relationships": {
+              "ma_xiaoman": 6
+            },
+            "actor": "ma_xiaoman"
+          }
+        ]
+      },
+      {
+        "id": "c_stand_low",
+        "text": "压低身子，先保住自己。",
+        "effects": {
+          "stats": {
+            "guts": -3,
+            "health": 3
+          },
+          "flags": {
+            "hid:canon_year_end": true
+          },
+          "add_memory": [
+            "你在「年关人情清算」那日低了头"
+          ],
+          "add_note": "你把影子留给了自己"
+        },
+        "hooks": [
+          {
+            "delay": 2,
+            "type": "message",
+            "text": "躲过去了。也远了。",
+            "stats": {
+              "warmth": -2,
+              "face": -2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_final",
+    "title": "回望",
+    "turn": 19,
+    "place": "edge",
+    "npcs": [
+      "ma_xiaoman"
+    ],
+    "trigger": {
+      "type": "turn"
+    },
+    "mandatory": true,
+    "tags": [
+      "回望"
+    ],
+    "narration": "该来的定数都来了。你欠过谁、帮过谁、怕过什么、放不下什么——这些是你的。\n\n这就够下一段用了。",
+    "choices": [
+      {
+        "id": "c_final_yes",
+        "text": "把自己这一段，在心里过一遍。",
+        "effects": {
+          "stats": {
+            "guts": 2,
+            "warmth": 2
+          },
+          "add_memory": [
+            "你认真回望了自己的这一段"
+          ],
+          "add_note": "你看清了自己"
+        },
+        "hooks": []
+      }
+    ]
+  }
+]
