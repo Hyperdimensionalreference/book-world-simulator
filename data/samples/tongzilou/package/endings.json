@@ -1,0 +1,78 @@
+[
+  {
+    "id": "end_guardian",
+    "title": "守住具体的人",
+    "priority": 15,
+    "conditions": {
+      "stats_min": {
+        "warmth": 65
+      },
+      "rel_min": {
+        "player": 40
+      }
+    },
+    "epithet": "一个让身边人感到「有人上心」的人",
+    "body": "你没有改写大势。\n可你让一些具体的人，没那么孤单。\n这世界会记住你的方式，不在功劳簿上，在人的嘴边。"
+  },
+  {
+    "id": "end_pillar",
+    "title": "站稳的人",
+    "priority": 25,
+    "conditions": {
+      "stats_min": {
+        "face": 60,
+        "guts": 50
+      },
+      "memory_min": 6
+    },
+    "epithet": "一个被当成靠山的人",
+    "body": "风雨里你没塌。有人开始在你身上放一点指望。\n这不是英雄故事，是过日子的底盘。"
+  },
+  {
+    "id": "end_craft",
+    "title": "手里有活路",
+    "priority": 35,
+    "conditions": {
+      "stats_min": {
+        "craft": 65
+      }
+    },
+    "epithet": "一个把本事攥在手里的人",
+    "body": "本事是假不了的。明天也有活干，这比空话硬。"
+  },
+  {
+    "id": "end_honest_debt",
+    "title": "把账理清",
+    "priority": 40,
+    "conditions": {
+      "stats_max": {
+        "favor_in": 1
+      },
+      "stats_min": {
+        "guts": 45
+      }
+    },
+    "epithet": "一个不被债压着走路的人",
+    "body": "账清了，心里才安生。你把脊梁直起来了。"
+  },
+  {
+    "id": "end_survivor",
+    "title": "过完了这一段",
+    "priority": 80,
+    "conditions": {},
+    "epithet": "一个在已知的岁月里认真活过的人",
+    "body": "历史不转弯。但你的活法是你自己的。\n你站在过具体的位置，做过具体的选择。"
+  },
+  {
+    "id": "end_cold",
+    "title": "渐渐冷掉",
+    "priority": 90,
+    "conditions": {
+      "stats_max": {
+        "warmth": 25
+      }
+    },
+    "epithet": "一个把自己护得太窄的人",
+    "body": "你保全了许多东西。只是有些门，后来不再为你开了。"
+  }
+]
