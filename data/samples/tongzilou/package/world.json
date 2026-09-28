@@ -1,0 +1,503 @@
+{
+  "meta": {
+    "id": "tongzi_low",
+    "title": "筒子楼 · 分房记",
+    "version": "0.1.0-scaffold",
+    "source_note": "第二本原创样本：国营厂筒子楼，与杏花沟同构不同域。用于验证「换书不换引擎」。",
+    "intro": "1987 年，北方国营纺织厂筒子楼。楼道共用水池，谁家吵架全楼都听得见。厂里要分房，名单没下来之前，所有人都在算。\n\n厂技术员，工龄中等。父亲走得早，母亲腿疾，弟弟订婚等着房。你不是劳模，也不是刺头——你身上那些没人写过的空白，才是你能落笔的地方。",
+    "extract_source": {
+      "source_id": "tongzi_low",
+      "source_title": "筒子楼 · 分房记",
+      "source_type": "original_sample",
+      "conflict_sources": [
+        "housing_list",
+        "shift_honor",
+        "wedding_bride",
+        "injury_favor",
+        "factory_wind",
+        "floor_reputation"
+      ],
+      "canon_events": [
+        "canon_room_list",
+        "canon_skill_contest",
+        "canon_brother_wedding",
+        "canon_injury",
+        "canon_factory_wave",
+        "canon_year_settle"
+      ],
+      "generator": "scaffold"
+    },
+    "play_space_note": "玩家是分房风波里的普通技术员。可玩空间：争或让、垫钱或躲、比武怎么打、楼道里怎么说话、走还是留。定数（榜、比武、婚期、伤、裁员、年终）不改写。"
+  },
+  "resources_note": "玩家是分房风波里的普通技术员。可玩空间：争或让、垫钱或躲、比武怎么打、楼道里怎么说话、走还是留。定数（榜、比武、婚期、伤、裁员、年终）不改写。",
+  "world_rules": [
+    "定数不改写，选择改变处境",
+    "人情通过具体的人回来",
+    "小世界靠日常压力驱动"
+  ],
+  "calendar": {
+    "name": "筒子楼 · 分房记 · 时序",
+    "turns": [
+      {
+        "index": 0,
+        "label": "间隙0",
+        "note": "日常"
+      },
+      {
+        "index": 1,
+        "label": "间隙1",
+        "note": "日常"
+      },
+      {
+        "index": 2,
+        "label": "间隙2",
+        "note": "日常"
+      },
+      {
+        "index": 3,
+        "label": "间隙3",
+        "note": "日常"
+      },
+      {
+        "index": 4,
+        "label": "分房名单张榜",
+        "note": "定数日"
+      },
+      {
+        "index": 5,
+        "label": "间隙5",
+        "note": "日常"
+      },
+      {
+        "index": 6,
+        "label": "厂技术比武",
+        "note": "定数日"
+      },
+      {
+        "index": 7,
+        "label": "间隙7",
+        "note": "日常"
+      },
+      {
+        "index": 8,
+        "label": "间隙8",
+        "note": "日常"
+      },
+      {
+        "index": 9,
+        "label": "间隙9",
+        "note": "日常"
+      },
+      {
+        "index": 10,
+        "label": "弟弟婚事逼到眼前",
+        "note": "定数日"
+      },
+      {
+        "index": 11,
+        "label": "间隙11",
+        "note": "日常"
+      },
+      {
+        "index": 12,
+        "label": "间隙12",
+        "note": "日常"
+      },
+      {
+        "index": 13,
+        "label": "张师傅工伤",
+        "note": "定数日"
+      },
+      {
+        "index": 14,
+        "label": "间隙14",
+        "note": "日常"
+      },
+      {
+        "index": 15,
+        "label": "间隙15",
+        "note": "日常"
+      },
+      {
+        "index": 16,
+        "label": "减员增效风声落地",
+        "note": "定数日"
+      },
+      {
+        "index": 17,
+        "label": "间隙17",
+        "note": "日常"
+      },
+      {
+        "index": 18,
+        "label": "间隙18",
+        "note": "日常"
+      },
+      {
+        "index": 19,
+        "label": "年终清账与楼道清算",
+        "note": "定数日"
+      },
+      {
+        "index": 20,
+        "label": "间隙20",
+        "note": "日常"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "id": "money",
+      "name": "钱",
+      "start": 120,
+      "min": 0,
+      "max": 9999,
+      "description": "可动用现钱"
+    },
+    {
+      "id": "face",
+      "name": "面子",
+      "start": 50,
+      "min": 0,
+      "max": 100,
+      "description": "说话分量"
+    },
+    {
+      "id": "guts",
+      "name": "硬气",
+      "start": 40,
+      "min": 0,
+      "max": 100,
+      "description": "心气"
+    },
+    {
+      "id": "warmth",
+      "name": "温度",
+      "start": 40,
+      "min": 0,
+      "max": 100,
+      "description": "是否上心"
+    },
+    {
+      "id": "craft",
+      "name": "手艺",
+      "start": 35,
+      "min": 0,
+      "max": 100,
+      "description": "立身本事"
+    },
+    {
+      "id": "health",
+      "name": "身子",
+      "start": 75,
+      "min": 0,
+      "max": 100,
+      "description": "体力"
+    },
+    {
+      "id": "favor_out",
+      "name": "欠你",
+      "start": 0,
+      "min": 0,
+      "max": 20,
+      "description": "人情债"
+    },
+    {
+      "id": "favor_in",
+      "name": "你欠",
+      "start": 1,
+      "min": 0,
+      "max": 20,
+      "description": "人情债"
+    }
+  ],
+  "places": [
+    {
+      "id": "hub",
+      "name": "中心",
+      "description": "1987 年，北方国营纺织厂筒子楼。楼道共用水池，谁家吵架全楼都听得见。厂里要分房，名单没下来之前，所有人都在算。"
+    },
+    {
+      "id": "work",
+      "name": "劳作处",
+      "description": "生计与规矩所在"
+    },
+    {
+      "id": "street",
+      "name": "消息场",
+      "description": "风声最快的地方"
+    },
+    {
+      "id": "home",
+      "name": "私域",
+      "description": "家里，账和心事最重"
+    },
+    {
+      "id": "edge",
+      "name": "边缘",
+      "description": "离开与归来的交界"
+    }
+  ],
+  "characters": [
+    {
+      "id": "player",
+      "name": "林卫东",
+      "age": 35,
+      "role": "player",
+      "faction": "",
+      "speech_style": "话少，认真，有时噎人",
+      "speech_examples": [],
+      "wants": "分到房、护住弟弟的亲事、不被厂里甩掉",
+      "blocks": "工龄不够长、家里底子薄、嘴不够甜",
+      "costs": "争名额会得罪人；不争全家挤一间",
+      "summary": "player"
+    },
+    {
+      "id": "mu_qin",
+      "name": "母亲",
+      "age": 35,
+      "role": "mother",
+      "faction": "",
+      "speech_style": "爱叹气，说半句留半句",
+      "speech_examples": [],
+      "wants": "儿子有房成家，别像自己熬一辈子",
+      "blocks": "腿疾、心疼钱、抹不开面求人",
+      "costs": "求人矮半截；不求看着儿子难",
+      "summary": "mother"
+    },
+    {
+      "id": "di_di",
+      "name": "林卫民",
+      "age": 35,
+      "role": "younger_brother",
+      "faction": "",
+      "speech_style": "急，会顶嘴，又很快软",
+      "speech_examples": [],
+      "wants": "娶小周、别拖累哥",
+      "blocks": "没房、没多少存款、脸皮薄",
+      "costs": "等房耽误婚；硬结又委屈姑娘",
+      "summary": "younger_brother"
+    },
+    {
+      "id": "zhu_ren",
+      "name": "马主任",
+      "age": 35,
+      "role": "workshop_head",
+      "faction": "",
+      "speech_style": "打官腔，爱说「再研究研究」",
+      "speech_examples": [],
+      "wants": "把车间稳住、房分得「说得过去」",
+      "blocks": "上头压指标，下面要公平",
+      "costs": "太公得罪关系户；太私留骂名",
+      "summary": "workshop_head"
+    },
+    {
+      "id": "lao_zhang",
+      "name": "张师傅",
+      "age": 35,
+      "role": "old_worker",
+      "faction": "",
+      "speech_style": "慢，爱说「当年……」",
+      "speech_examples": [],
+      "wants": "徒弟出息、自己体面退休",
+      "blocks": "病、厂子变了味",
+      "costs": "开口为徒弟就要欠人情",
+      "summary": "old_worker"
+    },
+    {
+      "id": "xiao_zhou",
+      "name": "周晓梅",
+      "age": 35,
+      "role": "brother_girlfriend",
+      "faction": "",
+      "speech_style": "脆，刀子嘴，心软",
+      "speech_examples": [],
+      "wants": "有房成家，也要被人尊重",
+      "blocks": "娘家催、卫民没底气",
+      "costs": "等是熬自己；催是不体面",
+      "summary": "brother_girlfriend"
+    },
+    {
+      "id": "li_saodao",
+      "name": "李嫂",
+      "age": 35,
+      "role": "floor_gossip",
+      "faction": "",
+      "speech_style": "气音，「我可只跟你说」",
+      "speech_examples": [],
+      "wants": "消息灵通、被人求",
+      "blocks": "嘴快",
+      "costs": "传话得罪人",
+      "summary": "floor_gossip"
+    },
+    {
+      "id": "gao_gong",
+      "name": "高工",
+      "age": 35,
+      "role": "engineer",
+      "faction": "",
+      "speech_style": "条理，偶尔刺人",
+      "speech_examples": [],
+      "wants": "技术被当回事",
+      "blocks": "重人情不重技术的风气",
+      "costs": "清高会孤立",
+      "summary": "engineer"
+    }
+  ],
+  "canon_events": [
+    {
+      "id": "canon_room_list",
+      "turn": 4,
+      "title": "分房名单张榜",
+      "description": "房管科贴榜。两套房，名字写死。哭闹和关系都不直接改榜，但决定谁在下一次「腾退」里被记住。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 1,
+          "text": "房管科的灯连着亮",
+          "source": "风声",
+          "canon_event": "canon_room_list"
+        },
+        {
+          "turn": 2,
+          "text": "有人开始往主任家送礼",
+          "source": "风声",
+          "canon_event": "canon_room_list"
+        },
+        {
+          "turn": 3,
+          "text": "楼道里打听「工龄怎么算」的多了",
+          "source": "风声",
+          "canon_event": "canon_room_list"
+        }
+      ]
+    },
+    {
+      "id": "canon_skill_contest",
+      "turn": 6,
+      "title": "厂技术比武",
+      "description": "比武照常举行。名次影响先进名额。场上拼的是手，场下还有别的。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 4,
+          "text": "张师傅天天加练",
+          "source": "风声",
+          "canon_event": "canon_skill_contest"
+        },
+        {
+          "turn": 5,
+          "text": "有人请高工开小灶",
+          "source": "风声",
+          "canon_event": "canon_skill_contest"
+        }
+      ]
+    },
+    {
+      "id": "canon_brother_wedding",
+      "turn": 10,
+      "title": "弟弟婚事逼到眼前",
+      "description": "女方家放出话：没房不领证。日子都看好了。这事不会因为你的努力自动好起来。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 8,
+          "text": "周晓梅来得勤了又少了",
+          "source": "风声",
+          "canon_event": "canon_brother_wedding"
+        },
+        {
+          "turn": 9,
+          "text": "母亲开始翻箱子底",
+          "source": "风声",
+          "canon_event": "canon_brother_wedding"
+        }
+      ]
+    },
+    {
+      "id": "canon_injury",
+      "turn": 13,
+      "title": "张师傅工伤",
+      "description": "车间事故。张师傅倒下。医药费、护理、厂里说法，一起压过来。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 11,
+          "text": "张师傅说最近眼花",
+          "source": "风声",
+          "canon_event": "canon_injury"
+        },
+        {
+          "turn": 12,
+          "text": "车间里少了玩笑",
+          "source": "风声",
+          "canon_event": "canon_injury"
+        }
+      ]
+    },
+    {
+      "id": "canon_factory_wave",
+      "turn": 16,
+      "title": "减员增效风声落地",
+      "description": "厂里开会传达精神。名单随后公布。留与走，都不是一句话的事。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 14,
+          "text": "上头来了工作组",
+          "source": "风声",
+          "canon_event": "canon_factory_wave"
+        },
+        {
+          "turn": 15,
+          "text": "有人开始学车、找门路",
+          "source": "风声",
+          "canon_event": "canon_factory_wave"
+        }
+      ]
+    },
+    {
+      "id": "canon_year_settle",
+      "turn": 19,
+      "title": "年终清账与楼道清算",
+      "description": "一年到头。谁争了房、谁垫了钱、谁在比武里下过手、谁在楼道里传过话，都到了被说清楚的时候。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 17,
+          "text": "楼道里开始算人情",
+          "source": "风声",
+          "canon_event": "canon_year_settle"
+        },
+        {
+          "turn": 18,
+          "text": "母亲让你把借据翻出来",
+          "source": "风声",
+          "canon_event": "canon_year_settle"
+        }
+      ]
+    }
+  ],
+  "players": [
+    {
+      "id": "player",
+      "name": "林卫东",
+      "age": 27,
+      "bio": "厂技术员，工龄中等。父亲走得早，母亲腿疾，弟弟订婚等着房。你不是劳模，也不是刺头——你身上那些没人写过的空白，才是你能落笔的地方。",
+      "start_stats": {},
+      "start_relationships": {
+        "mu_qin": 45,
+        "di_di": 50,
+        "zhu_ren": 10,
+        "lao_zhang": 30,
+        "xiao_zhou": 15,
+        "li_saodao": 10,
+        "gao_gong": 20
+      },
+      "start_flags": {},
+      "start_memory": [
+        "玩家是分房风波里的普通技术员。可玩空间：争或让、垫钱或躲、比武怎么打、楼道里怎么说话、走还是留。定数（榜、比武、婚期、伤、裁员、年终）不改写。"
+      ]
+    }
+  ]
+}
