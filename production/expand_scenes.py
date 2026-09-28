@@ -123,7 +123,7 @@ NEW_SCENES = [
       {
         "id": "c_skip_craft",
         "text": "眼下事太多，手艺先放放。",
-        "immediate": "「过阵子吧。」\n\n三叔合上本子：「过阵子，过阵子，你爹当年也爱说这三个字。」\n\n周医生那边你没去。���味好像也淡了。",
+        "immediate": "「过阵子吧。」\n\n三叔合上本子：「过阵子，过阵子，你爹当年也爱说这三个字。」\n\n周医生那边你没去。药味好像也淡了。",
         "effects": {
           "stats": {"guts": -2},
           "flags": {"skipped_craft": True},
@@ -533,7 +533,7 @@ NEW_SCENES = [
           "relationships": {"sun_youfu": 15, "sun_dama": 12},
           "flags": {"backed_sun_daughter": True},
           "add_memory": ["你资助孙家丫头念书", "sun_youfu|我们家欠小满一条路"],
-          "add_note": "你���一条路让给了孩子"
+          "add_note": "你把一条路让给了孩子"
         },
         "hooks": [
           {"delay": 2, "type": "message", "text": "丫头作文里写了你：「小满叔说，念书不是为了离开，是为了回来时有本事。」老师把作文贴在了教室。", "actor": "sun_youfu", "relationships": {"sun_youfu": 6}, "stats": {"warmth": 5, "face": 3}},
