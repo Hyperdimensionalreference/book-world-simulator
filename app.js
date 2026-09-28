@@ -1037,7 +1037,7 @@ function bind() {
       if ($("llm-status")) {
         $("llm-status").textContent = r.config.api_key_set
           ? "当前：已设置 Key · " + (r.config.model || "")
-          : "���前：未设置 Key（游玩不需要）";
+          : "当前：未设置 Key（游玩不需要）";
       }
       if (r.config.enabled) {
         state.settings.llmEnabled = "on";
