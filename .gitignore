@@ -1,0 +1,31 @@
+# Local configuration, even when the API Key is DPAPI-encrypted.
+data/config/llm.json
+data/config/llm.json.tmp
+data/config/
+
+# Private writing material and local progress.
+data/samples/*/source/
+data/samples/*/.package_production/
+data/saves/
+
+# Local server runtime state.
+.web-server.pid
+.web-port
+web/*.log
+web/*.err
+
+# Python bytecode / caches.
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local desktop shortcut tooling.
+*.lnk
+make_shortcut.py
+
+# OS / editor noise.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
