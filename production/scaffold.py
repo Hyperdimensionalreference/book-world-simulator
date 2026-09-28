@@ -566,7 +566,7 @@ def scaffold_package(extract: dict[str, Any]) -> dict[str, Any]:
             "priority": 90,
             "conditions": {"stats_max": {"warmth": 25}},
             "epithet": "一个把自己护得太窄的人",
-            "body": "你保全了许多东西。只是有些门，后来不再为你���了。",
+            "body": "你保全了许多东西。只是有些门，后来不再为你开了。",
         },
     ]
 
