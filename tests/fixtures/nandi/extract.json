@@ -14,7 +14,7 @@
     {"id": "du_po", "name": "杜婆", "role": "neighbor", "wants": "把布包送到外孙手里，也想知道彭枝是否愿意说实话", "blocks": "腿脚慢，消息总比别人迟", "costs": "揭穿年轻人会伤情分，忍下委屈又难放心", "speech_style": "短句，少责备，问话比训话多", "speech_examples": ["「包湿了？你先坐下说。」"]},
     {"id": "tian_zhanggui", "name": "田掌柜", "role": "lender", "wants": "收回木料钱，并在新桥开通前保住自己的货路", "blocks": "旧账分散在各家，街坊对他戒心重", "costs": "逼得太急会没人愿意再替他送货", "speech_style": "慢声算账，常把催促说成替人着想", "speech_examples": ["「我替你算过，拖到秋后更难。」"]},
     {"id": "zhong_xiaozhang", "name": "钟校长", "role": "school_head", "wants": "停航后孩子仍能按时上课", "blocks": "告示已定，学校缺车缺人手", "costs": "求人搬课桌，就要欠人情并放下校长的体面", "speech_style": "讲话周全，着急时会忘记客套", "speech_examples": ["「先说谁能送车，礼数我回头补。」"]},
-    {"id": "chen_qiao", "name": "陈桥", "role": "carpenter", "wants": "在新桥工程里接到活，也帮熟人找到下一份工", "blocks": "只有一辆板车，工期和人情撞在一起", "costs": "帮人会误工，不帮往后不好在南堤抬头", "speech_style": "爱讲手上���尺寸，少谈大道理", "speech_examples": ["「车能借，午前得还，我那头等木头。」"]}
+    {"id": "chen_qiao", "name": "陈桥", "role": "carpenter", "wants": "在新桥工程里接到活，也帮熟人找到下一份工", "blocks": "只有一辆板车，工期和人情撞在一起", "costs": "帮人会误工，不帮往后不好在南堤抬头", "speech_style": "爱讲手上的尺寸，少谈大道理", "speech_examples": ["「车能借，午前得还，我那头等木头。」"]}
   ],
   "canon_events": [
     {"id": "water_marker", "turn": 2, "title": "镇里重立水尺", "description": "镇公所把新水位标记立在旧渡口旁，过河风险有了公开的界线。", "foreshadow": ["阿六发现旧水尺歪斜，开始催人补船底。", "田掌柜的人到堤边测步，回来后不肯说用途。"]},
