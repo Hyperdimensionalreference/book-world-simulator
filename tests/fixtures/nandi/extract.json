@@ -1,0 +1,28 @@
+{
+  "meta": {"source_id": "nandi_ferry", "source_title": "南堤渡口 · 涨水季", "source_type": "original_sample", "extraction_note": "原创短篇结构提取；第三本书的制作流水线验收。", "schema_version": "1.0"},
+  "world_frame": {"scale": "one_street", "setting": "河两岸的一处旧渡口。涨水、停航与修桥逐渐改变靠船吃饭的人们的日常。", "time_unit": "涨水前后的一日", "power_map": "镇公所定告示，田掌柜握着木料与借账，船主和街坊靠彼此的信用过日子。", "threat_style": "水位、欠账、停航、孩子上学与离开渡口后的生计"},
+  "conflict_sources": [
+    {"id": "boat_repair", "name": "旧船修补", "type": "material", "description": "船漏得越来越勤，木料掌握在债主手里。彭枝要决定先保工钱还是先保船。", "stakes": "停工后的饭钱与阿六的信任"},
+    {"id": "debt_ledger", "name": "木料旧账", "type": "social_debt", "description": "田掌柜催债，替阿六说话会让彭枝家的账更难结。", "stakes": "家里的欠款与在渡口能否继续做事"},
+    {"id": "school_crossing", "name": "孩子过河", "type": "care_debt", "description": "停航消息未公开前，钟校长已在找过河的办法，出手帮忙会耽误自己的活。", "stakes": "孩子的课与彭枝的生计"},
+    {"id": "wet_parcel", "name": "杜婆的布包", "type": "reputation", "description": "受托的包裹受了潮，如实承认和掩饰都可能影响街坊对彭枝的看法。", "stakes": "杜婆的信任与南堤的人情"},
+    {"id": "new_bridge_work", "name": "桥那边的活路", "type": "exit_or_stay", "description": "新桥落成后，旧船不再养人；陈桥能介绍新活，阿六仍留在岸边。", "stakes": "离开的机会与留下照应旧人的代价"}
+  ],
+  "characters": [
+    {"id": "peng_zhi", "name": "彭枝", "role": "ferry_helper", "wants": "挣工钱还家里的木料账，也不把照应过她的人丢在岸上", "blocks": "船主和债主的要求相冲，渡口终将停航", "costs": "替一方出头会失去另一方给的活", "speech_style": "先听完再说话，答应之前总问一句具体怎么做", "speech_examples": ["「我去可以，船上这一头谁守？」"]},
+    {"id": "a_liu", "name": "阿六", "role": "boat_owner", "wants": "把旧船撑到下一季，保住自己和帮工的饭碗", "blocks": "水涨、木料贵，镇上已决定修便道", "costs": "借新债能补船，也会把未来的收入先押出去", "speech_style": "嘴硬而快，担心时先说船的事", "speech_examples": ["「先把这块板钉牢，别的明天说。」"]},
+    {"id": "du_po", "name": "杜婆", "role": "neighbor", "wants": "把布包送到外孙手里，也想知道彭枝是否愿意说实话", "blocks": "腿脚慢，消息总比别人迟", "costs": "揭穿年轻人会伤情分，忍下委屈又难放心", "speech_style": "短句，少责备，问话比训话多", "speech_examples": ["「包湿了？你先坐下说。」"]},
+    {"id": "tian_zhanggui", "name": "田掌柜", "role": "lender", "wants": "收回木料钱，并在新桥开通前保住自己的货路", "blocks": "旧账分散在各家，街坊对他戒心重", "costs": "逼得太急会没人愿意再替他送货", "speech_style": "慢声算账，常把催促说成替人着想", "speech_examples": ["「我替你算过，拖到秋后更难。」"]},
+    {"id": "zhong_xiaozhang", "name": "钟校长", "role": "school_head", "wants": "停航后孩子仍能按时上课", "blocks": "告示已定，学校缺车缺人手", "costs": "求人搬课桌，就要欠人情并放下校长的体面", "speech_style": "讲话周全，着急时会忘记客套", "speech_examples": ["「先说谁能送车，礼数我回头补。」"]},
+    {"id": "chen_qiao", "name": "陈桥", "role": "carpenter", "wants": "在新桥工程里接到活，也帮熟人找到下一份工", "blocks": "只有一辆板车，工期和人情撞在一起", "costs": "帮人会误工，不帮往后不好在南堤抬头", "speech_style": "爱讲手上���尺寸，少谈大道理", "speech_examples": ["「车能借，午前得还，我那头等木头。」"]}
+  ],
+  "canon_events": [
+    {"id": "water_marker", "turn": 2, "title": "镇里重立水尺", "description": "镇公所把新水位标记立在旧渡口旁，过河风险有了公开的界线。", "foreshadow": ["阿六发现旧水尺歪斜，开始催人补船底。", "田掌柜的人到堤边测步，回来后不肯说用途。"]},
+    {"id": "ferry_closed", "turn": 4, "title": "渡口停航告示张贴", "description": "镇公所宣布停航并先修北岸便道，旧渡船不得继续载客。", "foreshadow": ["桐油先涨了价，补船的人越来越少。", "常走渡口的货商提前把包裹搬到北岸。"]},
+    {"id": "school_moves", "turn": 6, "title": "南堤学校迁往北岸", "description": "停航后学校搬过河，课桌与孩子的路都换了方向。", "foreshadow": ["钟校长逐户问谁有车可以搬课桌。", "陈桥量了校门宽度，说旧桌子未必能整张推出去。"]},
+    {"id": "bridge_opens", "turn": 8, "title": "新桥开通", "description": "新桥按计划通行，旧渡船结束载客的日子。", "foreshadow": ["北岸堆起桥料，陈桥开始往那边上工。", "阿六把备用船桨收进棚里，却没告诉帮工为什么。"]}
+  ],
+  "player_suggestions": [{"id": "peng_zhi", "name": "彭枝", "age": 23, "bio": "你在南堤渡口帮工，家里欠着木料钱。船主给你活，债主握着账，水和告示都不等人。", "wants": "还清旧账并找到停航后的活路", "blocks": "手里没积蓄，熟人的期待彼此冲突", "start_relationships": {"a_liu": 35, "du_po": 20, "tian_zhanggui": 5, "zhong_xiaozhang": 10, "chen_qiao": 15}}],
+  "play_space_note": "作为渡口帮工，彭枝改不了停航与新桥开通，却能决定欠谁、帮谁、离开时是否仍有人愿意叫住她。",
+  "avoid": ["复述原文段落", "阻止停航", "拆掉新桥换回渡船"]
+}
