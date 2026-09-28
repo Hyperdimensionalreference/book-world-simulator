@@ -1,0 +1,669 @@
+{
+  "meta": {
+    "id": "xinghuagou_autumn",
+    "title": "杏花沟秋事",
+    "version": "0.1.0-scaffold",
+    "source_note": "制作阶段从短篇样本提取的结构。原文仅用于受控提取，不进入可玩数据包。本文件是「结构」而非「内容复述」。",
+    "intro": "北方山村杏花沟，秋收到年关，约当立秋至大寒\n\n你是这个世界里的普通人，不是被写定的主角。",
+    "extract_source": {
+      "source_id": "xinghuagou_autumn",
+      "source_title": "杏花沟秋事",
+      "source_type": "original_sample",
+      "conflict_sources": [
+        "land_boundary",
+        "sister_bride_price",
+        "debt_favor",
+        "lonely_elder",
+        "school_closing",
+        "rumor_network",
+        "poor_neighbor",
+        "clan_share",
+        "craft_path",
+        "sister_marriage_aguo",
+        "city_truth"
+      ],
+      "canon_events": [
+        "canon_land_survey",
+        "canon_zhao_engagement",
+        "canon_li_illness",
+        "canon_li_return",
+        "canon_bride_pressure",
+        "canon_li_death",
+        "canon_school_close",
+        "canon_year_end"
+      ],
+      "generator": "scaffold"
+    },
+    "play_space_note": "玩家是马小满，不是原著命运的改写者。可玩空间：土地站位、人情债、手艺立身、照应孤老与穷邻、包办婚事里的护妹、去留抉择。定数不改，处境与身份可改。小世界冲突靠面子、人情、土地、婚丧、离开归来驱动。"
+  },
+  "resources_note": "玩家是马小满，不是原著命运的改写者。可玩空间：土地站位、人情债、手艺立身、照应孤老与穷邻、包办婚事里的护妹、去留抉择。定数不改，处境与身份可改。小世界冲突靠面子、人情、土地、婚丧、离开归来驱动。",
+  "world_rules": [
+    "定数不改写，选择改变处境",
+    "人情通过具体的人回来",
+    "小世界靠日常压力驱动"
+  ],
+  "calendar": {
+    "name": "杏花沟秋事 · 时序",
+    "turns": [
+      {
+        "index": 0,
+        "label": "间隙0",
+        "note": "日常"
+      },
+      {
+        "index": 1,
+        "label": "间隙1",
+        "note": "日常"
+      },
+      {
+        "index": 2,
+        "label": "间隙2",
+        "note": "日常"
+      },
+      {
+        "index": 3,
+        "label": "间隙3",
+        "note": "日常"
+      },
+      {
+        "index": 4,
+        "label": "镇工作组进村量地",
+        "note": "定数日"
+      },
+      {
+        "index": 5,
+        "label": "间隙5",
+        "note": "日常"
+      },
+      {
+        "index": 6,
+        "label": "赵家办订婚席",
+        "note": "定数日"
+      },
+      {
+        "index": 7,
+        "label": "间隙7",
+        "note": "日常"
+      },
+      {
+        "index": 8,
+        "label": "李老栓病重",
+        "note": "定数日"
+      },
+      {
+        "index": 9,
+        "label": "间隙9",
+        "note": "日常"
+      },
+      {
+        "index": 10,
+        "label": "李建国回村并传出招工消息",
+        "note": "定数日"
+      },
+      {
+        "index": 11,
+        "label": "间隙11",
+        "note": "日常"
+      },
+      {
+        "index": 12,
+        "label": "陈家催定彩礼",
+        "note": "定数日"
+      },
+      {
+        "index": 13,
+        "label": "间隙13",
+        "note": "日常"
+      },
+      {
+        "index": 14,
+        "label": "李老栓去世",
+        "note": "定数日"
+      },
+      {
+        "index": 15,
+        "label": "间隙15",
+        "note": "日常"
+      },
+      {
+        "index": 16,
+        "label": "村小撤并红头文件",
+        "note": "定数日"
+      },
+      {
+        "index": 17,
+        "label": "间隙17",
+        "note": "日常"
+      },
+      {
+        "index": 18,
+        "label": "年关人情清算",
+        "note": "定数日"
+      },
+      {
+        "index": 19,
+        "label": "间隙19",
+        "note": "日常"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "id": "money",
+      "name": "钱",
+      "start": 120,
+      "min": 0,
+      "max": 9999,
+      "description": "可动用现钱"
+    },
+    {
+      "id": "face",
+      "name": "面子",
+      "start": 50,
+      "min": 0,
+      "max": 100,
+      "description": "说话分量"
+    },
+    {
+      "id": "guts",
+      "name": "硬气",
+      "start": 40,
+      "min": 0,
+      "max": 100,
+      "description": "心气"
+    },
+    {
+      "id": "warmth",
+      "name": "温度",
+      "start": 40,
+      "min": 0,
+      "max": 100,
+      "description": "是否上心"
+    },
+    {
+      "id": "craft",
+      "name": "手艺",
+      "start": 35,
+      "min": 0,
+      "max": 100,
+      "description": "立身本事"
+    },
+    {
+      "id": "health",
+      "name": "身子",
+      "start": 75,
+      "min": 0,
+      "max": 100,
+      "description": "体力"
+    },
+    {
+      "id": "favor_out",
+      "name": "欠你",
+      "start": 0,
+      "min": 0,
+      "max": 20,
+      "description": "人情债"
+    },
+    {
+      "id": "favor_in",
+      "name": "你欠",
+      "start": 1,
+      "min": 0,
+      "max": 20,
+      "description": "人情债"
+    }
+  ],
+  "places": [
+    {
+      "id": "hub",
+      "name": "中心",
+      "description": "北方山村杏花沟，秋收到年关，约当立秋至大寒"
+    },
+    {
+      "id": "work",
+      "name": "劳作处",
+      "description": "生计与规矩所在"
+    },
+    {
+      "id": "street",
+      "name": "消息场",
+      "description": "风声最快的地方"
+    },
+    {
+      "id": "home",
+      "name": "私域",
+      "description": "家里，账和心事最重"
+    },
+    {
+      "id": "edge",
+      "name": "边缘",
+      "description": "离开与归来的交界"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ma_xiaoman",
+      "name": "马小满",
+      "age": 35,
+      "role": "player",
+      "faction": "",
+      "speech_style": "话少，实在，偶尔犟",
+      "speech_examples": [],
+      "wants": "还清人情、护住妹妹的前程、在变局里站稳，弄清自己是谁",
+      "blocks": "没钱、母病、家无成年男丁、信息总是慢半拍",
+      "costs": "每选择一方就要冷落另一方；时间不可再生",
+      "summary": "player"
+    },
+    {
+      "id": "he_xiuying",
+      "name": "何秀英",
+      "age": 35,
+      "role": "mother",
+      "faction": "",
+      "speech_style": "刀子嘴，短句，带刺，护犊",
+      "speech_examples": [],
+      "wants": "儿女体面、不被人看扁、还清人情",
+      "blocks": "丧夫、体弱、穷但死要强",
+      "costs": "要面子就要出血；护孩子会跟孩子吵",
+      "summary": "mother"
+    },
+    {
+      "id": "ma_changgui",
+      "name": "马长贵",
+      "age": 35,
+      "role": "uncle_creditor",
+      "faction": "",
+      "speech_style": "慢条斯理，账本不离手，「亲兄弟明算账」",
+      "speech_examples": [],
+      "wants": "账清、被人当正经长辈敬着",
+      "blocks": "名声上怕被说「逼侄子」",
+      "costs": "太算计会伤亲情；太松自己吃亏",
+      "summary": "uncle_creditor"
+    },
+    {
+      "id": "zhao_jinsuo",
+      "name": "赵金锁",
+      "age": 35,
+      "role": "neighbor_rival",
+      "faction": "",
+      "speech_style": "大嗓门，好强，「不是我吹」",
+      "speech_examples": [],
+      "wants": "地界占先、在村里有脸、儿子出息被看见",
+      "blocks": "儿子未必靠得住；自己好吹牛",
+      "costs": "争地争狠了结死仇；不管又咽不下",
+      "summary": "neighbor_rival"
+    },
+    {
+      "id": "wang_shen",
+      "name": "王婶",
+      "age": 35,
+      "role": "rumor_node",
+      "faction": "",
+      "speech_style": "气音，凑近，「我跟你说你可别跟别人说」",
+      "speech_examples": [],
+      "wants": "消息灵通、被人围着听、顺手帮人换人情",
+      "blocks": "嘴快容易坏事",
+      "costs": "传话会得罪人；不传就没人找她",
+      "summary": "rumor_node"
+    },
+    {
+      "id": "li_laoshuan",
+      "name": "李老栓",
+      "age": 35,
+      "role": "lonely_elder",
+      "faction": "",
+      "speech_style": "少言，叹气，咳嗽，「人老了不中用了」",
+      "speech_examples": [],
+      "wants": "病中有人照应、别给儿子添麻烦、走得不孤单",
+      "blocks": "子远、体弱、自尊心强不愿开口求人",
+      "costs": "开口求人丢脸；不开口受罪",
+      "summary": "lonely_elder"
+    },
+    {
+      "id": "li_jianguo",
+      "name": "李建国",
+      "age": 35,
+      "role": "returnee_son",
+      "faction": "",
+      "speech_style": "干脆，城里习气，话不多但直",
+      "speech_examples": [],
+      "wants": "尽孝、招工给村里年轻人出路、报答善待父亲的人",
+      "blocks": "工厂走不开、父亲固执、尽孝与挣钱两难",
+      "costs": "报恩花钱花人情；不管会背骂名",
+      "summary": "returnee_son"
+    },
+    {
+      "id": "wang_xiaozhang",
+      "name": "王校长",
+      "age": 35,
+      "role": "school_master",
+      "faction": "",
+      "speech_style": "认真，稍书面，「孩子不能没学上」",
+      "speech_examples": [],
+      "wants": "保住孩子的学、给小满指条路",
+      "blocks": "撤并是上头定的、自己权力有限",
+      "costs": "说真话得罪人；不说又于心不安",
+      "summary": "school_master"
+    },
+    {
+      "id": "chen_meipo",
+      "name": "陈媒婆",
+      "age": 35,
+      "role": "broker",
+      "faction": "",
+      "speech_style": "圆滑，「两边都是好人家，就看诚意」",
+      "speech_examples": [],
+      "wants": "把亲事说成、两边都念她的好",
+      "blocks": "两边要求都有硬的地方",
+      "costs": "促成要压价或压面子；不成两头落埋怨",
+      "summary": "broker"
+    },
+    {
+      "id": "liu_kuaiji",
+      "name": "刘会计",
+      "age": 35,
+      "role": "village_accountant",
+      "faction": "",
+      "speech_style": "公文腔混着圆场话，「按政策来，也看实际情况」",
+      "speech_examples": [],
+      "wants": "差事办稳、不出乱子、自己别沾火星",
+      "blocks": "上面催进度，下面都要脸",
+      "costs": "公道会得罪人；偏私会留把柄",
+      "summary": "village_accountant"
+    },
+    {
+      "id": "ma_xiaoyu",
+      "name": "马小雨",
+      "age": 35,
+      "role": "sister",
+      "faction": "",
+      "speech_style": "小声，懂事，话里藏着委屈",
+      "speech_examples": [],
+      "wants": "继续念书、不拖累家里",
+      "blocks": "家里要她说亲换彩礼、懂事到委屈自己",
+      "costs": "争取念书伤娘的心；退让毁自己前程",
+      "summary": "sister"
+    },
+    {
+      "id": "zhao_xiaojun",
+      "name": "赵小军",
+      "age": 35,
+      "role": "city_youth",
+      "faction": "",
+      "speech_style": "自信，略浮，新词多",
+      "speech_examples": [],
+      "wants": "把村里年轻人带出去、自己在城里站住",
+      "blocks": "村里人观望、父亲好面子要他撑场",
+      "costs": "带走人可能带走劳动力也带走牵挂",
+      "summary": "city_youth"
+    },
+    {
+      "id": "zhou_dehou",
+      "name": "周德厚",
+      "age": 35,
+      "role": "village_doctor",
+      "faction": "",
+      "speech_style": "慢，土话夹医嘱",
+      "speech_examples": [],
+      "wants": "治好病",
+      "blocks": "药贵人穷",
+      "costs": "赊账",
+      "summary": "village_doctor"
+    },
+    {
+      "id": "sun_youfu",
+      "name": "孙有福",
+      "age": 35,
+      "role": "poor_neighbor",
+      "faction": "",
+      "speech_style": "低短搓手",
+      "speech_examples": [],
+      "wants": "不饿、女念书",
+      "blocks": "地少嘴笨",
+      "costs": "开口就丢脸",
+      "summary": "poor_neighbor"
+    },
+    {
+      "id": "chen_aguo",
+      "name": "陈阿国",
+      "age": 35,
+      "role": "suitor",
+      "faction": "",
+      "speech_style": "木，俺爹说",
+      "speech_examples": [],
+      "wants": "成亲且不欺负小雨",
+      "blocks": "父命彩礼",
+      "costs": "顺父伤她",
+      "summary": "suitor"
+    },
+    {
+      "id": "ma_linzi",
+      "name": "马林子",
+      "age": 35,
+      "role": "cousin",
+      "faction": "",
+      "speech_style": "滑甜",
+      "speech_examples": [],
+      "wants": "借钱说亲",
+      "blocks": "手散",
+      "costs": "借多伤亲",
+      "summary": "cousin"
+    },
+    {
+      "id": "guihua",
+      "name": "桂花",
+      "age": 35,
+      "role": "migrant_worker",
+      "faction": "",
+      "speech_style": "快脆城里词",
+      "speech_examples": [],
+      "wants": "挣嫁妆别回村",
+      "blocks": "寄钱义务",
+      "costs": "掏空自己",
+      "summary": "migrant_worker"
+    }
+  ],
+  "canon_events": [
+    {
+      "id": "canon_land_survey",
+      "turn": 4,
+      "title": "镇工作组进村量地",
+      "description": "确权量地按期进行，界线以登记与丈量为准，个人哭闹不改变「按政策来」的结果方向。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 0,
+          "text": "王婶墙根嚼舌",
+          "source": "风声",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 1,
+          "text": "粮价下跌农药上涨",
+          "source": "风声",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 2,
+          "text": "刘会计家灯火通明",
+          "source": "风声",
+          "canon_event": "canon_land_survey"
+        },
+        {
+          "turn": 3,
+          "text": "有人说告状信到了镇上",
+          "source": "风声",
+          "canon_event": "canon_land_survey"
+        }
+      ]
+    },
+    {
+      "id": "canon_zhao_engagement",
+      "turn": 6,
+      "title": "赵家办订婚席",
+      "description": "赵家为赵小军订婚，席面在打谷场，村里人情在此亮相。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 4,
+          "text": "赵金锁提前放话要办大事",
+          "source": "风声",
+          "canon_event": "canon_zhao_engagement"
+        },
+        {
+          "turn": 5,
+          "text": "供销社有人赊账买糖",
+          "source": "风声",
+          "canon_event": "canon_zhao_engagement"
+        }
+      ]
+    },
+    {
+      "id": "canon_li_illness",
+      "turn": 8,
+      "title": "李老栓病重",
+      "description": "孤老李老栓卧床，儿子在南方，病情按人走的规律加重，不以玩家是否照应为转移。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 6,
+          "text": "王婶提起李老栓咳嗽",
+          "source": "风声",
+          "canon_event": "canon_li_illness"
+        },
+        {
+          "turn": 7,
+          "text": "沟口烟囱有时不冒烟",
+          "source": "风声",
+          "canon_event": "canon_li_illness"
+        }
+      ]
+    },
+    {
+      "id": "canon_li_return",
+      "turn": 10,
+      "title": "李建国回村并传出招工消息",
+      "description": "工厂招工与「带人出去」的消息扩散，年轻人的岔路口摆在面前。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 8,
+          "text": "镇上传来招工风",
+          "source": "风声",
+          "canon_event": "canon_li_return"
+        },
+        {
+          "turn": 9,
+          "text": "摩托声响进村",
+          "source": "风声",
+          "canon_event": "canon_li_return"
+        }
+      ]
+    },
+    {
+      "id": "canon_bride_pressure",
+      "turn": 12,
+      "title": "陈家催定彩礼",
+      "description": "说亲进入硬谈判，彩礼数额成为面子与家底的正面冲突。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 10,
+          "text": "陈媒婆两头走",
+          "source": "风声",
+          "canon_event": "canon_bride_pressure"
+        },
+        {
+          "turn": 11,
+          "text": "娘叠被单时停手",
+          "source": "风声",
+          "canon_event": "canon_bride_pressure"
+        }
+      ]
+    },
+    {
+      "id": "canon_li_death",
+      "turn": 14,
+      "title": "李老栓去世",
+      "description": "病故，丧事在沟口办理，人情网在白事上重新排序。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 12,
+          "text": "夜里狗叫得紧",
+          "source": "风声",
+          "canon_event": "canon_li_death"
+        },
+        {
+          "turn": 13,
+          "text": "有人往沟口送鸡蛋",
+          "source": "风声",
+          "canon_event": "canon_li_death"
+        }
+      ]
+    },
+    {
+      "id": "canon_school_close",
+      "turn": 16,
+      "title": "村小撤并红头文件",
+      "description": "小学开春并入镇中心校，帮工岗位消失成为定局。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 14,
+          "text": "王校长整理作业本",
+          "source": "风声",
+          "canon_event": "canon_school_close"
+        },
+        {
+          "turn": 15,
+          "text": "上头来人看校舍",
+          "source": "风声",
+          "canon_event": "canon_school_close"
+        }
+      ]
+    },
+    {
+      "id": "canon_year_end",
+      "turn": 18,
+      "title": "年关人情清算",
+      "description": "账本、份子、往来在年关结算；你成为谁，在这些账里被说清楚。",
+      "fixed": true,
+      "rumors": [
+        {
+          "turn": 16,
+          "text": "三叔把软皮本擦了又擦",
+          "source": "风声",
+          "canon_event": "canon_year_end"
+        },
+        {
+          "turn": 17,
+          "text": "供销社扯红纸的人多了",
+          "source": "风声",
+          "canon_event": "canon_year_end"
+        }
+      ]
+    }
+  ],
+  "players": [
+    {
+      "id": "player",
+      "name": "无名者",
+      "age": 28,
+      "bio": "你是这个世界里的普通人，不是被写定的主角。",
+      "start_stats": {},
+      "start_relationships": {
+        "ma_xiaoman": 10,
+        "he_xiuying": 10,
+        "ma_changgui": 10,
+        "zhao_jinsuo": 10,
+        "wang_shen": 10,
+        "li_laoshuan": 10
+      },
+      "start_flags": {},
+      "start_memory": [
+        "玩家是马小满，不是原著命运的改写者。可玩空间：土地站位、人情债、手艺立身、照应孤老与穷邻、包办婚事里的护妹、去留抉择。定数不改，处境与身份可改。小世界冲突靠面子、人情、土地、婚丧、离开归来驱动。"
+      ]
+    }
+  ]
+}
