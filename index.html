@@ -1,0 +1,474 @@
+<!-- AI生成 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>书中世界模拟器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar" id="main-topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" id="btn-toggle-shelf" title="书架">☰</button>
+        <button class="brand-btn" data-nav="home" title="回到首页">书中世界模拟器</button>
+        <nav class="main-nav">
+          <button class="nav-item active" data-nav="home">世界</button>
+          <button class="nav-item" data-nav="ingest">投书</button>
+          <button class="nav-item" data-nav="saves">存档</button>
+          <button class="nav-item" data-nav="achievements">成就</button>
+          <button class="nav-item" data-nav="settings">设置</button>
+        </nav>
+      </div>
+      <div class="topbar-right">
+        <div class="jieqi hidden" id="game-jieqi">
+          <span id="turn-label">—</span>
+          <span id="turn-note" class="turn-note"></span>
+        </div>
+        <div class="player-chip hidden" id="game-player-chip">
+          <span class="player-name" id="player-name">—</span>
+          <span class="player-tag">小人物</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 侧栏书架 -->
+    <aside id="shelf" class="shelf">
+      <div class="shelf-head">
+        <div class="shelf-title">书架 · 进行中</div>
+        <button class="btn-ghost btn-sm" id="btn-shelf-refresh">刷新</button>
+      </div>
+      <div id="shelf-list" class="shelf-list"></div>
+      <div class="shelf-foot">
+        <button class="btn-ghost btn-sm" data-nav="ingest">+ 投一本</button>
+      </div>
+    </aside>
+    <div id="shelf-backdrop" class="shelf-backdrop hidden"></div>
+
+    <div class="app-body" id="app-body">
+
+    <!-- 首页 -->
+    <section id="view-home" class="view">
+      <div class="home-hero">
+        <div class="brand-mark">书中世界模拟器</div>
+        <h1 class="home-title">走进一本书</h1>
+        <p class="home-sub">成为里头一个普通人</p>
+        <p class="home-lead">
+          大事按书上写定的发生，你改不了大势。<br />
+          但你和谁站在一起、付出什么、被人怎样记住——这些是你的。
+        </p>
+        <div class="home-actions">
+          <button class="btn-primary" id="btn-start">开始游玩</button>
+          <button class="btn-ghost" data-nav="ingest">投一本书</button>
+        </div>
+        <div class="book-picker">
+          <div class="book-label">可选的书中世界</div>
+          <div id="book-list" class="book-list"></div>
+        </div>
+        <p class="home-hint">游玩全程离线 · 投书时可自动生成封面与场景图 · 侧栏一键切换且继承进度</p>
+      </div>
+    </section>
+
+    <!-- 游玩 -->
+    <section id="view-play" class="view hidden">
+      <div class="layout">
+        <aside class="side">
+          <div class="panel">
+            <h3 class="panel-title">处境</h3>
+            <div id="stat-list" class="stat-list"></div>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">关系</h3>
+            <div id="rel-list" class="rel-list"></div>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">本季定数</h3>
+            <div id="canon-timeline" class="canon-timeline"></div>
+          </div>
+        </aside>
+        <main class="main">
+          <div class="play-toolbar">
+            <button class="btn-ghost" data-nav="home">← 返回</button>
+            <button class="btn-ghost" id="btn-restart">重开</button>
+            <button class="btn-ghost" id="btn-save">存档</button>
+            <button class="btn-ghost" id="btn-quick-save">快速存档</button>
+            <button class="btn-ghost" id="btn-open-saves">读档</button>
+            <button class="btn-ghost btn-god" id="btn-god-mode">✦ 创造模式</button>
+          </div>
+
+          <div class="god-panel glass hidden" id="god-panel">
+            <div class="god-head">
+              <div class="god-title">创造模式 · 上帝的粗线</div>
+              <button class="btn-ghost btn-sm" id="btn-god-close">收起</button>
+            </div>
+            <p class="hint">
+              你可以拧动关系与处境、留下手谕；<strong>写定的定数与终局仍会来</strong>——上帝也挽救不了所有人的命运。
+            </p>
+            <div class="god-grid">
+              <label class="field">
+                <span>干预类型</span>
+                <select id="god-kind">
+                  <option value="relation">关系温度</option>
+                  <option value="stat">处境数值</option>
+                  <option value="attitude">人物态度</option>
+                  <option value="directive">大方向手谕</option>
+                  <option value="canon">（尝试改定数）</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>人物（关系/态度）</span>
+                <select id="god-target"><option value="">—</option></select>
+              </label>
+              <label class="field">
+                <span>数值</span>
+                <select id="god-stat"><option value="">—</option></select>
+              </label>
+              <label class="field">
+                <span>幅度（±15 / ±25 以内）</span>
+                <input id="god-delta" type="number" value="8" />
+              </label>
+            </div>
+            <label class="field">
+              <span>手谕 / 大方向（模型会据此改写后续走向）</span>
+              <textarea id="god-note" rows="3" placeholder="例如：让三叔更器重玩家；妹妹的婚事先缓；天气与人心都往冬天收……"></textarea>
+            </label>
+            <div class="row">
+              <button class="btn-primary" id="btn-god-apply">写入命运</button>
+              <button class="btn-ghost" id="btn-god-limits">看限度</button>
+            </div>
+            <pre id="god-out" class="code-out"></pre>
+          </div>
+
+          <div class="scene-art glass" id="scene-art">
+            <img id="scene-art-img" alt="" />
+            <div class="scene-art-overlay">
+              <div class="scene-art-place" id="scene-art-place">杏花沟</div>
+              <div class="scene-art-caption" id="scene-art-caption">风已经硬了</div>
+            </div>
+          </div>
+          <div id="message-stack" class="message-stack"></div>
+          <article id="scene-card" class="scene-card hidden">
+            <div class="scene-meta">
+              <div>
+                <div class="scene-place" id="scene-place"></div>
+                <h2 class="scene-title" id="scene-title"></h2>
+              </div>
+              <div class="npc-row" id="scene-npcs"></div>
+            </div>
+            <div class="scene-body" id="scene-body"></div>
+            <div class="choice-list" id="choice-list"></div>
+          </article>
+          <article id="pick-card" class="scene-card hidden">
+            <div class="scene-meta">
+              <div>
+                <div class="scene-place">今天</div>
+                <h2 class="scene-title">时间只有一份</h2>
+              </div>
+            </div>
+            <div class="scene-body"><p>今天你只能顾上一件事。该来的定数躲不开，其余由你取舍。</p></div>
+            <div class="choice-list" id="pick-list"></div>
+          </article>
+          <article id="ending-card" class="ending-card hidden">
+            <div class="ending-kicker">回望 · 我成为了谁</div>
+            <h2 class="ending-title" id="ending-title"></h2>
+            <div class="ending-body" id="ending-body"></div>
+            <div class="ending-epithet" id="ending-epithet"></div>
+            <div class="ending-actions">
+              <button class="btn-primary" id="btn-again">再活一季</button>
+              <button class="btn-ghost" id="btn-timeline">看看走过的路</button>
+            </div>
+            <div id="memory-log" class="memory-log hidden"></div>
+          </article>
+        </main>
+        <aside class="side side-right">
+          <div class="panel">
+            <h3 class="panel-title">风声</h3>
+            <div id="rumor-list" class="rumor-list"><p class="empty-tip">墙根的闲话，总会先到一步。</p></div>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">迟来的事</h3>
+            <div id="pending-list" class="pending-list"><p class="empty-tip">有些后果不会当场结算。</p></div>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">记得</h3>
+            <div id="memory-list" class="memory-list"><p class="empty-tip">世界会记住你做过的事。</p></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 投书 -->
+    <section id="view-ingest" class="view hidden">
+      <div class="page">
+        <h1 class="page-title">投一本书</h1>
+        <p class="page-lead">
+          把书变成可玩世界。原文只用于受控的制作过程，不进入公开成品。
+          游玩时仍然完全离线、不调用 AI。
+        </p>
+
+        <div class="steps">
+          <div class="step active" data-step="1">1 正文</div>
+          <div class="step" data-step="2">2 结构</div>
+          <div class="step" data-step="3">3 生成</div>
+        </div>
+
+        <!-- 步骤1 -->
+        <div class="card" id="ingest-step-1">
+          <h2 class="card-title">写入正文</h2>
+          <label class="field">
+            <span>世界名称</span>
+            <input id="ingest-title" type="text" placeholder="例如：县城招待所" />
+          </label>
+          <label class="field">
+            <span>正文（粘贴或上传 .txt / .md）</span>
+            <textarea id="ingest-text" rows="12" placeholder="把书的正文贴进来。系统会起草结构，你再修订。"></textarea>
+          </label>
+          <div class="row">
+            <input type="file" id="ingest-file" accept=".txt,.md,text/plain,text/markdown" />
+            <button class="btn-primary" id="btn-draft">从正文起草结构</button>
+          </div>
+          <p class="hint">也可以直接跳到第 2 步粘贴 extract JSON（适合已有结构提取）。</p>
+          <div class="row">
+            <button class="btn-ghost" id="btn-to-step2">下一步：结构</button>
+          </div>
+        </div>
+
+        <!-- 步骤2 -->
+        <div class="card hidden" id="ingest-step-2">
+          <h2 class="card-title">结构（可编辑）</h2>
+          <p class="hint">这是「谁想要什么、谁挡着谁、什么在什么时候发生」。不是剧情复述。</p>
+          <label class="field">
+            <span>extract JSON</span>
+            <textarea id="ingest-extract" rows="16" spellcheck="false"></textarea>
+          </label>
+          <div class="row">
+            <button class="btn-ghost" id="btn-to-step1">上一步</button>
+            <button class="btn-ghost" id="btn-validate-extract">校验结构</button>
+            <button class="btn-primary" id="btn-build">生成可玩世界</button>
+          </div>
+          <label class="field">
+            <span><input id="ingest-use-llm" type="checkbox" /> 使用已配置的文本模型加厚场景与结局</span>
+          </label>
+          <p class="hint">默认生成本地草稿。勾选后才向文本 API 发送当前结构；正文仅用于本地重合检查，不会保存到书架目录。失败后保持相同结构重试，可续做已完成步骤。配图仍按设置单独执行。</p>
+          <pre id="ingest-validate-out" class="code-out"></pre>
+        </div>
+
+        <!-- 步骤3 -->
+        <div class="card hidden" id="ingest-step-3">
+          <h2 class="card-title">已生成</h2>
+          <div id="ingest-result" class="result-box"></div>
+          <div class="row">
+            <button class="btn-primary" id="btn-play-new">进入这个世界</button>
+            <button class="btn-ghost" data-nav="home">回到世界列表</button>
+            <button class="btn-ghost" id="btn-ingest-again">再投一本</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 存档 -->
+    <section id="view-saves" class="view hidden">
+      <div class="page">
+        <h1 class="page-title">存档</h1>
+        <p class="page-lead">多槽位保存，可读档续玩。自动存档会在你做出选择后写入。</p>
+        <div class="row">
+          <button class="btn-primary" id="btn-save-now">保存当前进度</button>
+          <button class="btn-ghost" id="btn-refresh-saves">刷新列表</button>
+        </div>
+        <div id="save-list" class="save-list"></div>
+      </div>
+    </section>
+
+    <!-- 成就 -->
+    <section id="view-achievements" class="view hidden">
+      <div class="page">
+        <h1 class="page-title">成就</h1>
+        <p class="page-lead">跨周目记住你做过什么。与结局不同——结局问「你成了谁」，成就问「你做过什么」。</p>
+        <div class="ach-summary" id="ach-summary">已解锁 0 / 0</div>
+        <div id="ach-list" class="ach-list"></div>
+      </div>
+    </section>
+
+    <!-- 设置 -->
+    <section id="view-settings" class="view hidden">
+      <div class="page">
+        <h1 class="page-title">设置</h1>
+        <p class="page-lead">只影响本机界面与存档偏好，保存在浏览器与 data/saves。</p>
+
+        <div class="card glass">
+          <h2 class="card-title">外观</h2>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">主题</div>
+              <div class="setting-desc">宣纸（日间）/ 墨夜（夜间）</div>
+            </div>
+            <div class="seg" id="set-theme">
+              <button data-value="paper" class="on">宣纸</button>
+              <button data-value="ink">墨夜</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">正文字号</div>
+              <div class="setting-desc">叙事与选项的文字大小</div>
+            </div>
+            <div class="seg" id="set-font">
+              <button data-value="15">小</button>
+              <button data-value="17" class="on">中</button>
+              <button data-value="19">大</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">玻璃柔光</div>
+              <div class="setting-desc">卡片磨砂与光晕强度</div>
+            </div>
+            <div class="seg" id="set-glass">
+              <button data-value="soft" class="on">柔和</button>
+              <button data-value="strong">明显</button>
+              <button data-value="off">关闭</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">动效</div>
+              <div class="setting-desc">入场 / 悬停 / 流光</div>
+            </div>
+            <div class="seg" id="set-motion">
+              <button data-value="on" class="on">开</button>
+              <button data-value="lite">轻量</button>
+              <button data-value="off">关</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2 class="card-title">游玩</h2>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">选项显示序号</div>
+              <div class="setting-desc">像目录一样标 1. 2. 3.</div>
+            </div>
+            <div class="seg" id="set-numbers">
+              <button data-value="on" class="on">开</button>
+              <button data-value="off">关</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">自动存档</div>
+              <div class="setting-desc">每次选择后写入「auto」槽</div>
+            </div>
+            <div class="seg" id="set-autosave">
+              <button data-value="on" class="on">开</button>
+              <button data-value="off">关</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">重开前确认</div>
+              <div class="setting-desc">防止误点丢失进度</div>
+            </div>
+            <div class="seg" id="set-confirm">
+              <button data-value="on" class="on">开</button>
+              <button data-value="off">关</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">成就提示</div>
+              <div class="setting-desc">解锁时右上角浮出</div>
+            </div>
+            <div class="seg" id="set-toast">
+              <button data-value="on" class="on">开</button>
+              <button data-value="off">关</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2 class="card-title">数据</h2>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">清空界面偏好</div>
+              <div class="setting-desc">恢复默认主题、字号、玻璃与动效</div>
+            </div>
+            <button class="btn-ghost" id="btn-reset-settings">重置偏好</button>
+          </div>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">清空成就记录</div>
+              <div class="setting-desc">仅本机成就元数据，不影响存档</div>
+            </div>
+            <button class="btn-ghost" id="btn-reset-achievements">清空成就</button>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2 class="card-title">大模型 API（制作阶段）</h2>
+          <p class="hint">用于投书起草、结构精修等制作任务。游玩过程仍然完全离线，不调用此 API。</p>
+          <div class="setting-row">
+            <div>
+              <div class="setting-name">启用自定义 API</div>
+              <div class="setting-desc">OpenAI 兼容接口（/v1/chat/completions）</div>
+            </div>
+            <div class="seg" id="set-llm-enabled">
+              <button data-value="off" class="on">关</button>
+              <button data-value="on">开</button>
+            </div>
+          </div>
+          <label class="field">
+            <span>Base URL</span>
+            <input id="llm-base-url" type="text" placeholder="https://api.openai.com/v1" />
+          </label>
+          <label class="field">
+            <span>API Key（保存后不回显）</span>
+            <input id="llm-api-key" type="password" placeholder="sk-..." autocomplete="off" />
+          </label>
+          <label class="field">
+            <span>模型名（文本）</span>
+            <input id="llm-model" type="text" placeholder="gpt-4o-mini" />
+          </label>
+          <label class="field">
+            <span>图像模型（投书时自动生成封面与场景图）</span>
+            <input id="llm-image-model" type="text" placeholder="dall-e-3" />
+          </label>
+          <div class="row">
+            <button class="btn-primary" id="btn-save-llm">保存 API 配置</button>
+            <button class="btn-ghost" id="btn-test-llm">测试连通</button>
+            <button class="btn-ghost" id="btn-clear-llm-key">清除本机 Key</button>
+          </div>
+          <pre id="llm-status" class="code-out"></pre>
+          <p class="hint">Key 由当前 Windows 用户加密保存在本机，不回显。自定义 API 服务商会收到 Key 与发送给它的制作内容；请只填写你信任的 HTTPS 地址。游玩、读档、切换书架仍可离线。</p>
+        </div>
+
+        <div class="card glass">
+          <h2 class="card-title">关于</h2>
+          <p class="about-text">
+            书中世界模拟器<br />
+            游玩不调用 AI · 引擎与书籍数据分离 · 换书不换引擎<br />
+            存档与成就落在 data/saves，重启仍在
+          </p>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /app-body -->
+
+    <!-- 浮层 -->
+    <div id="toast-root" class="toast-root"></div>
+    <div id="modal-root" class="modal-root hidden">
+      <div class="modal glass">
+        <h3 id="modal-title" class="modal-title">确认</h3>
+        <p id="modal-text" class="modal-text"></p>
+        <div class="row modal-actions">
+          <button class="btn-primary" id="modal-ok">确定</button>
+          <button class="btn-ghost" id="modal-cancel">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
